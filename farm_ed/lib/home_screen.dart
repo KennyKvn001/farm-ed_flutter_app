@@ -1,5 +1,4 @@
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../pages/home-page.dart';
 import '../pages/blog-page.dart';
@@ -19,11 +18,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // List of pages corresponding to the bottom nav items
   final List<Widget> _pages = [
-    HomePage(), // This would be the main screen with cards
-    BlogPage(),
-    SearchPage(),
-    ArticlePage(),
-    VideosPage(),
+    const HomePage(), // This would be the main screen with cards
+    const BlogPage(),
+    const SearchPage(),
+    const ArticlePage(),
+    const VideosPage(),
   ];
 
   void _onNavItemTapped(int index) {
@@ -45,17 +44,17 @@ class _HomeScreenState extends State<HomeScreen> {
           isFloating: true,
           elevation: 2,
           iconSize: 30.0,
-          borderRadius: Radius.circular(30),
+          borderRadius: const Radius.circular(30),
           selectedColor: Colors.green,
           unSelectedColor: Colors.white,
-          backgroundColor: Color.fromARGB(255, 50, 121, 53),
+          backgroundColor: const Color.fromARGB(255, 50, 121, 53),
           strokeColor: Colors.white,
           items: [
-            CustomNavigationBarItem(icon: Icon(Icons.home_outlined)),
-            CustomNavigationBarItem(icon: Icon(Icons.ballot_rounded)),
-            CustomNavigationBarItem(icon: Icon(Icons.search)),
-            CustomNavigationBarItem(icon: Icon(Icons.article_rounded)),
-            CustomNavigationBarItem(icon: Icon(Icons.play_circle_outline)),
+            CustomNavigationBarItem(icon: const Icon(Icons.home_outlined)),
+            CustomNavigationBarItem(icon: const Icon(Icons.ballot_rounded)),
+            CustomNavigationBarItem(icon: const Icon(Icons.search)),
+            CustomNavigationBarItem(icon: const Icon(Icons.article_rounded)),
+            CustomNavigationBarItem(icon: const Icon(Icons.play_circle_outline)),
           ],
           currentIndex: _selectedIndex, // Show active item
           onTap: _onNavItemTapped, // Handle nav tap

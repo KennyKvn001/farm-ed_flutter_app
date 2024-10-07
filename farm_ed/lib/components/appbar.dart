@@ -9,7 +9,7 @@ class Appbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(25),
+      padding: const EdgeInsets.all(25),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -22,10 +22,10 @@ class Appbar extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => NotificationsPage()),
+                        builder: (context) => const NotificationsPage()),
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.notifications_none,
                   color: Colors.black,
                   size: 30,
@@ -38,7 +38,7 @@ class Appbar extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                    MaterialPageRoute(builder: (context) => const ProfilePage()),
                   );
                 },
                 child: SvgPicture.asset('image/icons/profile.svg'),

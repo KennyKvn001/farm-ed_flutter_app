@@ -1,8 +1,8 @@
+// ignore: file_names
+// ignore: file_names
 // import 'package:farm_ed/components/navigationbar.dart';
 import 'package:farm_ed/components/slidecards.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:farm_ed/components/appbar.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -25,16 +25,16 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(children: [
             // Appbar
-            Appbar(),
-            SizedBox(height: 10.0),
+            const Appbar(),
+            const SizedBox(height: 10.0),
 
             // Cards
-            Container(
+            SizedBox(
               height: 320,
               child: PageView(
                 scrollDirection: Axis.horizontal,
                 controller: _controller,
-                children: [
+                children: const [
                   SlideCard(
                     type: 'Blog',
                     description: 'Microsoft launches a deepfake',
@@ -53,14 +53,14 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             // page controller
             SmoothPageIndicator(
               controller: _controller,
               count: 3,
-              effect: ExpandingDotsEffect(activeDotColor: Colors.green),
+              effect: const ExpandingDotsEffect(activeDotColor: Colors.green),
             ),
           ]),
         ),
