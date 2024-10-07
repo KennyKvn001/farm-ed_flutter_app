@@ -1,4 +1,9 @@
-import 'package:flutter/cupertino.dart';
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
+// ignore: file_names
 import 'package:flutter/material.dart';
 
 class BlogPage extends StatelessWidget {
@@ -6,8 +11,8 @@ class BlogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Blog Page')),
-      body: Center(child: Text('Blog Page Content')),
+      appBar: AppBar(title: const Text('Blog Page')),
+      body: const Center(child: Text('Blog Page Content')),
     );
   }
 }
