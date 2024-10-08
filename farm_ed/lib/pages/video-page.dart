@@ -6,8 +6,8 @@ class VideosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Videos Page')),
-      body: Center(child: Text('Videos Page Content')),
+      appBar: AppBar(title: const Text('Videos Page')),
+      body: const Center(child: Text('Videos Page Content')),
     );
   }
 }

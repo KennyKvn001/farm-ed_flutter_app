@@ -6,8 +6,8 @@ class ArticlePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Article Page')),
-      body: Center(child: Text('Article Page Content')),
+      appBar: AppBar(title: const Text('Article Page')),
+      body: const Center(child: Text('Article Page Content')),
     );
   }
 }
