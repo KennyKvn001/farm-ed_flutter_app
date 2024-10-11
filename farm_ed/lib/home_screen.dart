@@ -48,13 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
           selectedColor: Colors.green,
           unSelectedColor: Colors.white,
           backgroundColor: const Color.fromARGB(255, 50, 121, 53),
-          strokeColor: Colors.white,
+          strokeColor: Colors.transparent,
           items: [
             CustomNavigationBarItem(icon: const Icon(Icons.home_outlined)),
             CustomNavigationBarItem(icon: const Icon(Icons.ballot_rounded)),
             CustomNavigationBarItem(icon: const Icon(Icons.search)),
             CustomNavigationBarItem(icon: const Icon(Icons.article_rounded)),
-            CustomNavigationBarItem(icon: const Icon(Icons.play_circle_outline)),
+            CustomNavigationBarItem(
+                icon: const Icon(Icons.play_circle_outline)),
           ],
           currentIndex: _selectedIndex, // Show active item
           onTap: _onNavItemTapped, // Handle nav tap

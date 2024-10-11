@@ -4,6 +4,7 @@
 // ignore: file_names
 // ignore: file_names
 // ignore: file_names
+import 'package:farm_ed/components/appbar.dart';
 import 'package:flutter/material.dart';
 
 class BlogPage extends StatelessWidget {
@@ -11,8 +12,14 @@ class BlogPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Blog Page')),
-      body: const Center(child: Text('Blog Page Content')),
+      body: SafeArea(
+          child: SingleChildScrollView(
+              child: Column(
+        children: [
+          const Appbar(),
+          Center(child: Text('Blog Page Content')),
+        ],
+      ))),
     );
   }
 }
