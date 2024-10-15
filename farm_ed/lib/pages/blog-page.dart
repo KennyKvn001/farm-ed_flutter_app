@@ -5,6 +5,7 @@
 // ignore: file_names
 // ignore: file_names
 import 'package:farm_ed/components/appbar.dart';
+import 'package:farm_ed/components/blogs.dart';
 import 'package:flutter/material.dart';
 
 class BlogPage extends StatelessWidget {
@@ -17,7 +18,21 @@ class BlogPage extends StatelessWidget {
               child: Column(
         children: [
           const Appbar(),
-          Center(child: Text('Blog Page Content')),
+          Container(
+            decoration: BoxDecoration(color: Colors.green[700]),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: Center(
+                  child: Text(
+                'Blogs',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold),
+              )),
+            ),
+          ),
+          SizedBox(height: 500, child: MyBlogs()),
         ],
       ))),
     );
