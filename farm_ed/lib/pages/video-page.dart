@@ -1,3 +1,4 @@
+import 'package:farm_ed/components/appbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,8 +7,14 @@ class VideosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Videos Page')),
-      body: const Center(child: Text('Videos Page Content')),
+      body: SafeArea(
+          child: SingleChildScrollView(
+              child: Column(
+        children: [
+          const Appbar(),
+          Center(child: Text('Videos Page Content')),
+        ],
+      ))),
     );
   }
 }
