@@ -32,7 +32,7 @@ class BlogPage extends StatelessWidget {
               )),
             ),
           ),
-          SizedBox(height: 500, child: MyBlogs()),
+          SizedBox(height: 800, child: MyBlogs()),
         ],
       ))),
     );
