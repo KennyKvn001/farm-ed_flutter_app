@@ -49,7 +49,7 @@ class BlogDetials extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     blog['Author1'] ?? 'No Dates',
-                    style: TextStyle(fontSize: 18, color: Colors.grey),
+                    style: TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ),
                 Padding(
@@ -77,17 +77,20 @@ class BlogDetials extends StatelessWidget {
 
         //back button
         SafeArea(
-          child: Container(
-            margin: const EdgeInsets.only(left: 16),
-            decoration: BoxDecoration(
-                color: Colors.green[700],
-                borderRadius: BorderRadius.circular(30)),
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios_new_rounded,
-                color: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Container(
+              margin: const EdgeInsets.only(left: 16),
+              decoration: BoxDecoration(
+                  color: Colors.green[700],
+                  borderRadius: BorderRadius.circular(30)),
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: Colors.white,
+                ),
+                onPressed: () => Navigator.pop(context),
               ),
-              onPressed: () => Navigator.pop(context),
             ),
           ),
         )
