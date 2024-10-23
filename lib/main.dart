@@ -1,98 +1,187 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Virtual Reality',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
+        scaffoldBackgroundColor: Colors.white,
       ),
-      home: HomePage(),
+      home: const NewsHomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+class NewsHomePage extends StatelessWidget {
+  const NewsHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Virtual Reality'),
-        centerTitle: true,
-        actions: [
-          IconButton(
-            icon: Icon(Icons.search),
-            onPressed: () {
-              // Action for search button
-            },
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SectionHeader(title: '13 Videos'),
-              VideoSection(),
-              SizedBox(height: 20),
-              SectionHeader(title: '78 News'),
-              NewsSection(),
-            ],
-          ),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Search Bar
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Virtual Reality',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                        ),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        icon: const Icon(Icons.search, color: Colors.white),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
+            // Videos Section
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    '13 Videos',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.arrow_forward_ios, size: 16),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+
+            // Video Cards
+            SizedBox(
+              height: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                children: [
+                  VideoCard(
+                    title: 'The IPO parade continues as Wish files',
+                    imageUrl: 'assets/video1.jpg',
+                  ),
+                  const SizedBox(width: 16),
+                  VideoCard(
+                    title: 'Insurtech startup PasarPolis gets',
+                    imageUrl: 'assets/video2.jpg',
+                  ),
+                ],
+              ),
+            ),
+
+            // News Section
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    '78 News',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.arrow_forward_ios, size: 16),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+
+            // News List
+            Expanded(
+              child: ListView(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                children: const [
+                  NewsItem(
+                    title:
+                        'Insurtech startup PasarPolis gets \$54 million — Series B',
+                  ),
+                  NewsItem(
+                    title: 'Hypatos gets \$11.8M for a deep learning approach',
+                  ),
+                  NewsItem(
+                    title:
+                        'The IPO parade continues as Wish files, Bumble targets continues as parade',
+                  ),
+                  NewsItem(
+                    title:
+                        'The IPO parade continues as Wish files, Bumble targets continues as parade',
+                  ),
+                ],
+              ),
+            ),
+
+            // Bottom Navigation Bar
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.green[700],
+                borderRadius: BorderRadius.circular(25),
+              ),
+              margin: const EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.home, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.radio, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.search, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.article, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(Icons.play_circle_outline,
+                        color: Colors.white),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.rss_feed),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.article),
-            label: '',
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SectionHeader extends StatelessWidget {
-  final String title;
-
-  const SectionHeader({Key? key, required this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      title,
-      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-    );
-  }
-}
-
-class VideoSection extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 150,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          VideoCard(title: 'The IPO parade continues as Wish files'),
-          VideoCard(title: 'Insurtech startup PasarPolis gets \$54 million'),
-        ],
       ),
     );
   }
@@ -100,27 +189,62 @@ class VideoSection extends StatelessWidget {
 
 class VideoCard extends StatelessWidget {
   final String title;
+  final String imageUrl;
 
-  const VideoCard({Key? key, required this.title}) : super(key: key);
+  const VideoCard({
+    Key? key,
+    required this.title,
+    required this.imageUrl,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 200,
-      margin: EdgeInsets.only(right: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      width: 280,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15),
+        image: DecorationImage(
+          image: AssetImage(imageUrl),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: Stack(
         children: [
           Container(
-            height: 100,
-            color: Colors.blueAccent, // Placeholder for video image
-            child: Center(
-                child: Icon(Icons.play_circle_fill, color: Colors.white)),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [
+                  Colors.transparent,
+                  Colors.black.withOpacity(0.7),
+                ],
+              ),
+            ),
           ),
-          SizedBox(height: 8),
-          Text(
-            title,
-            style: TextStyle(fontSize: 16),
+          Positioned(
+            bottom: 16,
+            left: 16,
+            right: 16,
+            child: Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 50,
+            left: 0,
+            right: 0,
+            child: Icon(
+              Icons.play_circle_outline,
+              color: Colors.white.withOpacity(0.7),
+              size: 48,
+            ),
           ),
         ],
       ),
@@ -128,35 +252,25 @@ class VideoCard extends StatelessWidget {
   }
 }
 
-class NewsSection extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        NewsTile(
-            title: 'Insurtech startup PasarPolis gets \$54 million — Series B'),
-        NewsTile(title: 'Hypatos gets \$11.8M for a deep learning approach'),
-        NewsTile(
-            title: 'The IPO parade continues as Wish files, Bumble targets'),
-        NewsTile(title: 'Hypatos gets \$11.8M for a deep learning approach'),
-      ],
-    );
-  }
-}
-
-class NewsTile extends StatelessWidget {
+class NewsItem extends StatelessWidget {
   final String title;
 
-  const NewsTile({Key? key, required this.title}) : super(key: key);
+  const NewsItem({
+    Key? key,
+    required this.title,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(title),
-      contentPadding: EdgeInsets.symmetric(vertical: 8.0),
-      onTap: () {
-        // Action when the news is tapped
-      },
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
     );
   }
 }
