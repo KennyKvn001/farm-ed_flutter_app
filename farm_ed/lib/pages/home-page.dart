@@ -149,7 +149,7 @@ class _HomePageState extends State<HomePage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) =>
-                        DetailsPage(content: _blogs[3], contentType: 'Blog'),
+                        DetailsPage(content: _news[3], contentType: 'News'),
                   ),
                 );
               },
