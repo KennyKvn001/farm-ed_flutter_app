@@ -1,5 +1,7 @@
-import 'package:farm_ed/home_screen.dart';
+
+import 'package:farm_ed/pages/signup.dart';
 import 'package:flutter/material.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home:SignupPage(),
     );
   }
 }

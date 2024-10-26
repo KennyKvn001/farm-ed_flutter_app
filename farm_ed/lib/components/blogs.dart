@@ -56,9 +56,9 @@ class _MyBlogsState extends State<MyBlogs> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      BlogDetials(blog: _blogs[index]),
-                                ),
+                                    builder: (context) => DetailsPage(
+                                        content: _blogs[index],
+                                        contentType: 'Blog')),
                               );
                             },
                             child: Padding(

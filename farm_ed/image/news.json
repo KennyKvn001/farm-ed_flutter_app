@@ -1,524 +1,76 @@
 {
-  "news": [
-    {
-      "Title": "Predator too? BioArmix tackles bacterial pathogens with novel \u2018predatory\u2019 biologicals",
-      "Title_URL": "https://agfundernews.com/predator-too-bioarmix-tackles-bacterial-pathogens-with-novel-predatory-biologicals",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/BioArmix-cofounder-and-CEO-Dr-Tzvi-Zvirin.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Feeding cattle whole seaweed is more effective than bromoform alone for methane reduction, says study",
-      "Title_URL": "https://agfundernews.com/feeding-cattle-whole-seaweed-is-more-effective-than-bromoform-alone-for-methane-reduction-says-study",
-      "Image": "https://agfundernews.com/wp-content/uploads/2022/06/Asparagopsis-Seaweed-1-300x169.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Israel-Gaza conflict not \u201cthe whole story\u201d behind plunge in agrifoodtech funding",
-      "Title_URL": "https://agfundernews.com/israel_funding_since_conflict",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/02/NH-in-cherry-2-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Plant-based meat, US retail: Refrigerated remains in freefall, frozen starting to plateau",
-      "Title_URL": "https://agfundernews.com/plant-based-meat-us-retail-refrigerated-remains-in-freefall-frozen-starting-to-plateau",
-      "Image": "https://agfundernews.com/wp-content/uploads/2022/10/Burgers-made-from-plant-based-meat-food-reducing-carbon-footprint-1322248043_1257x838-300x200.jpeg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Carbon Robotics eyes new regions, products with $70m raise: \u2018We\u2019re focused very intently on the field\u2019",
-      "Title_URL": "https://agfundernews.com/carbon-robotics-eyes-new-regions-products-with-70m-raise-were-focused-very-intently-on-the-field",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Paul_Mikesell_CEO_and_Founder_of_Carbon_Robotics-300x300.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Dark side of the genome: Inside Plantik\u2019s mission to grow heat-tolerant crops through genome editing",
-      "Title_URL": "https://agfundernews.com/dark-side-of-the-genome-inside-plantiks-mission-to-grow-heat-tolerant-crops-through-genome-editing",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Plantik-Team-300x177.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Australian precision fermentation startup All G plans bovine lactoferrin launch in 2025",
-      "Title_URL": "https://agfundernews.com/australian-precision-fermentation-startup-all-g-plans-bovine-lactoferrin-launch-in-2025",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Jan-Pacas-CEO-All-G-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "90% of farmers to maintain or increase spending on bio-based crop protection, says McKinsey global farmer survey",
-      "Title_URL": "https://agfundernews.com/90-of-farmers-to-maintain-or-increase-spending-on-bio-based-crop-protection-says-mckinsey-global-farmer-survey",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/iStock-1386260590-300x188.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Entosystem president: \u2018The whole purpose of our company is based on diverting organic waste from landfill\u2019",
-      "Title_URL": "https://agfundernews.com/entosystem-ceo-the-whole-purpose-of-our-company-is-based-on-diverting-organic-waste-from-landfill",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Entosystem-e1729284836850-300x184.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "NEW REPORT: African agrifoodtech funding recovers 1.6% YoY in H1 2024 amid global funding challenges",
-      "Title_URL": "https://agfundernews.com/african-agrifoodtech-funding-recovers-1-6-yoy-in-h1-2024-amid-global-funding-challenges",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Screenshot-2024-10-16-at-13.08.35-300x224.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "The Week in AgriFoodTech: Alt meatball alert as La Vie cooks up $27m, baCta lands funds for natural rubber",
-      "Title_URL": "https://agfundernews.com/alt-meatball-alert-as-la-vie-cooks-up-27m-bacta-lands-funds-for-natural-rubber",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/bacta-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Smallholder farmer adoption of agtech \u2018high but inconsistent,\u2019 says new study from 60 Decibels w/ Gates Foundation",
-      "Title_URL": "https://agfundernews.com/smallholder-farmer-adoption-of-agtech-high-but-inconsistent-says-new-study-from-60-decibels-w-gates-foundation",
-      "Image": "https://agfundernews.com/wp-content/uploads/2023/05/iStock-1406034319-e1683217283718-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "WIth a new grant from Gates Foundation, Legume Technology aims to rescue Africa\u2019s deteriorating soils",
-      "Title_URL": "https://agfundernews.com/with-a-new-grant-from-gates-foundation-legume-technology-aims-to-rescue-africas-deteriorating-soils",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/08/iStock-1407553871-300x199.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "\ud83c\udfa5 Heura CEO: \u2018We can transform ultra-processed foods into highly nutritious options\u2019",
-      "Title_URL": "https://agfundernews.com/%f0%9f%8e%a5-heura-ceo-we-can-transform-ultra-processed-foods-into-highly-nutritious-options",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Screenshot-2024-10-17-142738-e1729202100208-300x214.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "A new $75m investment pilot offers innovative finance for smallholders in low-income countries",
-      "Title_URL": "https://agfundernews.com/a-new-75m-investment-pilot-offers-innovative-finance-for-smallholders-in-low-income-countries",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/1651443852758-300x300.jpeg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "The Week in AgriFoodTech: Blue Stripes, Nukoko land rounds for alt chocolate, OroraTech snags deal for wildfire detection",
-      "Title_URL": "https://agfundernews.com/blue-stripes-nukoko-land-rounds-for-alt-chocolate-ororatech-snags-deal-for-wildfire-detection",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/No-alternative-text-description-for-this-image-12-300x225.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "\u2018Protected needs to mean protected\u2019: new report finds governments falling \u2018far short\u2019 of marine biodiversity targets",
-      "Title_URL": "https://agfundernews.com/protected-needs-to-mean-protected-new-report-finds-governments-falling-far-short-of-marine-biodiversity-targets",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/iStock-1905341662-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Agrifintech Agrolend banks $53m Series C: \u2018It demonstrates the market\u2019s confidence in our business model\u2019",
-      "Title_URL": "https://agfundernews.com/agrifintech-agrolend-banks-53m-series-c-it-demonstrates-the-markets-confidence-in-our-business-model",
-      "Image": "https://agfundernews.com/wp-content/uploads/2022/01/Agrolend-Founders-3-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Number 8 Bio CEO: Synthetic chemistry, not seaweed or biomanufacturing, is key to cost-effective livestock methane reduction",
-      "Title_URL": "https://agfundernews.com/number-8-bio-ceo-synthetic-chemistry-not-seaweed-or-biomanufacturing-is-key-to-cost-effective-livestock-methane-reduction",
-      "Image": "https://agfundernews.com/wp-content/uploads/2023/06/Tom-Williams-cofounder-and-CEO-NUmber-8-Bio-300x224.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Terviva pushes into biofuels after investment from Chevron Renewable Energy Group",
-      "Title_URL": "https://agfundernews.com/terviva-pushes-into-biofuels-after-investment-from-chevron-renewable-energy-group",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/03/Naveen-Sikka-cofounder-and-CEO-Terviva-Image-credit-Terviva-300x225.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Sparkalis Invests in plant cell culture startup California Cultured to futureproof cocoa supply chain",
-      "Title_URL": "https://agfundernews.com/sparkalis-invests-in-plant-cell-culture-startup-california-cultured-to-futureproof-cocoa-supply-chain",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Alan-Perlstein-Image-credit-California-Cultured-300x222.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Regulatory bottleneck is thwarting biologicals, says Biotalys CEO: \u2018We\u2019ve got to figure out another way\u2019",
-      "Title_URL": "https://agfundernews.com/regulatory-bottleneck-is-thwarting-biologicals-says-biotalys-ceo-weve-got-to-figure-out-another-way",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Kevi-Biotalysn-300x224.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "John Kempf\u2019s AEA to help Turkey, southeast Europe convert to regen ag through new partnership",
-      "Title_URL": "https://agfundernews.com/john-kempfs-aea-to-help-turkey-southeast-europe-convert-to-regen-ag-through-new-partnership",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Screenshot-2024-10-16-at-10.56.38-300x202.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Gen AI for small farms \u2018can significantly boost production of major commodities\u2019 says AGRIVI in Barbados agtech roll-out",
-      "Title_URL": "https://agfundernews.com/gen-ai-for-small-farms-can-significantly-boost-production-of-major-commodities-says-agrivi-in-barbados-agtech-roll-out",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/No-alternative-text-description-for-this-image-8-300x225.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Guest article: Farmers aren\u2019t buying today\u2019s ag robotics model. You shouldn\u2019t either",
-      "Title_URL": "https://agfundernews.com/guest-article-farmers-arent-buying-todays-ag-robotics-model-you-shouldnt-either",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Tim-Bucher-Agtonomy-Headshot-_-SQ-V2-1-300x300.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Enhanced rock weathering startup Eion strikes carbon removal deal with Microsoft, raises $3m series A extension",
-      "Title_URL": "https://agfundernews.com/enhanced-rock-weathering-startup-eion-strikes-carbon-removal-deal-with-microsoft-raises-3m-series-a-extension",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/09/Olivine-image-credit-Eion-300x215.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "From bread to booze, climate smart cereal Tritordeum has huge potential, says Vivagran CEO",
-      "Title_URL": "https://agfundernews.com/from-bread-to-booze-climate-smart-cereal-tritordeum-has-huge-potential-says-vivagran-ceo",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/09/Etienne-Vassiliadis-founder-Vivagran-300x300.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Plant-based whole cut startup Juicy Marbles plans US retail launch in 2025, aims for profitability by year end",
-      "Title_URL": "https://agfundernews.com/plant-based-whole-cut-startup-juicy-marbles-plans-us-retail-launch-in-2025-aims-for-profitability-by-year-end",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/07/Juicy-Marbles-Feature-300x157.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "From driverless cars to precision ag with eFeed cofounder Kumar Ranjan: \u2018I\u2019m kind of an accidental entrepreneur\u2019",
-      "Title_URL": "https://agfundernews.com/from-driverless-cars-to-precision-ag-with-efeed-cofounder-kumar-ranjan-im-kind-of-an-accidental-entrepreneur",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/08/Kumar-Ranjan-eFeed-300x215.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Chef Robotics CEO: \u2018A lot of robotics companies have made grandiose promises, but they haven\u2019t really shipped any robots. We\u2019re much more practical\u2019",
-      "Title_URL": "https://agfundernews.com/chef-robotics-ceo-a-lot-of-robotic-companies-have-made-grandiose-promises-but-they-havent-really-shipped-any-robots-were-much-more-practical",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/07/Rajat-Bhageria-founder-and-CEO-Chef-Robotics-300x300.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Brief: NVIDIA\u2019s venture arm invests in autonomous weeding startup Carbon Robotics",
-      "Title_URL": "https://agfundernews.com/brief-nvidias-venture-arm-invests-in-autonomous-weeding-startup-carbon-robotics",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/05/8bc1b14f-5262-4832-a970-b5f6e2b83bbc-300x169.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Meet the founder: Hyphen\u2019s Stephen Klein on \u2018humbling\u2019 startup experiences, pandemic pivots, and why you don\u2019t need a robotic sledgehammer to crack a nut",
-      "Title_URL": "https://agfundernews.com/meet-the-founder-hyphens-stephen-klein-on-humbling-startup-experiences-pandemic-pivots-and-why-you-dont-need-a-robotic-sledgehammer-to-crack-a-nut",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/04/STEPHEN-KLEIN-CEO-CO-FOUNDER-Hyphen-300x240.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "\ud83c\udfa5Enifer ramps up mycoprotein production: \u2018We use side stream raw materials rather than dextrose as feedstocks\u2019",
-      "Title_URL": "https://agfundernews.com/%f0%9f%8e%a5enifer-ramps-up-mycoprotein-production-we-use-side-stream-raw-materials-rather-than-dextrose-as-feedstocks",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Simo-Ellila-cofounder-and-CEO-Enifer-300x230.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "\ud83c\udfa5 ENOUGH CEO on a \u2018hard 12 months\u2019 scaling up mycoprotein production, buoyed by \u2018stunning interest\u2019 from Big Meat",
-      "Title_URL": "https://agfundernews.com/%f0%9f%8e%a5-enough-ceo-on-a-hard-12-months-scaling-up-mycoprotein-production-buoyed-by-stunning-interest-from-big-meat",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Jim-Laird-CEO-ENOUGH-Foods-300x206.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Jackfruit-powered alt meat co The Jackfruit Company raises $5m series B extension",
-      "Title_URL": "https://agfundernews.com/jackfruit-powered-alt-meat-co-the-jackfruit-company-raises-5m-series-b-extension",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Annie-Ryu-The-Jackfruit-Company-300x214.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Global demand for seafood is soaring but how well funded are aquatic food tech startups?",
-      "Title_URL": "https://agfundernews.com/global-demand-for-seafood-is-soaring-but-how-well-funded-are-aquatic-food-tech-startups",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/09/Fish-1-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "MiAlgae nets $18.5m to scale production of omega-3s from microalgae",
-      "Title_URL": "https://agfundernews.com/mialgae-nets-18-5m-to-scale-production-of-omega-3s-from-microalgae",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/09/Douglas-Martin-founder-and-CEO-MiAlgae-300x247.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Generate Capital on backing vertical farming\u2019s survivors: \u2018We believe there is an opportunity and a better way\u2019",
-      "Title_URL": "https://agfundernews.com/generate-capital-on-backing-vertical-farmings-survivors-we-believe-there-is-an-opportunity-and-a-better-way",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/08/1610361618570-300x300.jpeg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "High-tech shrimp farmer Atarraya plans 200-tank facility in Northeastern US",
-      "Title_URL": "https://agfundernews.com/high-tech-shrimp-farmer-atarraya-plans-200-tank-facility-in-northeastern-us",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/07/No-alternative-text-description-for-this-image-90-300x225.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "BREAKING: xFarm bags $39m to increase regenerative farming practices across Europe, Asia and Latam",
-      "Title_URL": "https://agfundernews.com/breaking-xfarm-bags-39m-to-increase-regenerative-farming-practices-across-europe-asia-and-latam",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/TeamxFarm-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Regenerative agriculture must \u2018pay dividends\u2019 on yields and livelihoods to increase farmer adoption, says survey",
-      "Title_URL": "https://agfundernews.com/regenerative-agriculture-must-pay-dividends-on-yields-and-livelihoods-to-increase-farmer-adoption-says-survey",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/09/iStock-2165200582-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Guest article: Technology is a regenerative ag tool, not a silver bullet, but we\u2019re trapped in the belief that it can solve all our problems",
-      "Title_URL": "https://agfundernews.com/guest-article-technology-is-a-regenerative-ag-tool-not-a-silver-bullet-but-were-trapped-in-the-belief-that-it-can-solve-all-our-problems",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/09/Precision-agriculture-istock-ChatkarenStudio-e1727210626241-300x222.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Bluemethane unveils novel tech to capture methane from water",
-      "Title_URL": "https://agfundernews.com/bluemethane-ceo-methane-emissions-from-water-are-an-environmental-catastrophe-but-also-a-waste-of-resources-that-can-be-turned-into-energy",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/06/Louise-Blue-Methane-254x300.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Meet the founder: Werewool\u2019s Chui-Lian Lee harnesses microbes to create colorful fabrics\u2026 without dyes",
-      "Title_URL": "https://agfundernews.com/werewool-deploys-microbes-to-create-colorful-fabrics-without-dyes",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/05/Chui-Lian-Lee-cofounder-and-CEO-Werewool-Image-credit-Werewool-300x235.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "\ud83c\udfa5Hyf\u00e9 looks to waste streams to power the next generation of sustainable feedstocks for biomanufacturing",
-      "Title_URL": "https://agfundernews.com/hyfe-looks-to-waste-streams-to-power-the-next-generation-of-sustainable-feedstocks-for-biomanufacturing",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/05/Michelle-Ruiz-cofounder-and-CEO-Hyfe-300x208.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Sponsored",
-      "Title_URL": "https://agfundernews.com/author/sponsored-post",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Tue-18-Day-one_Agrifutures_17-web-300x200.jpeg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Methane-busting feed supplements are beginning to scale. But who will foot the bill, and what will drive widespread adoption?",
-      "Title_URL": "https://agfundernews.com/methane-busting-feed-supplements-are-beginning-to-scale-but-who-will-foot-the-bill-and-what-will-drive-widespread-adoption",
-      "Image": "https://agfundernews.com/wp-content/uploads/2023/06/Cows-iStock-PaulMaguire-300x196.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Regulatory bottleneck is thwarting biologicals, says Biotalys CEO: \u2018We\u2019ve got to figure out another way\u2019",
-      "Title_URL": "https://agfundernews.com/regulatory-bottleneck-is-thwarting-biologicals-says-biotalys-ceo-weve-got-to-figure-out-another-way",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Kevi-Biotalysn-300x224.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "From novelty to necessity? The evolution of insect farming",
-      "Title_URL": "https://agfundernews.com/from-novelty-to-necessity-the-evolution-of-insect-farming",
-      "Image": "https://agfundernews.com/wp-content/uploads/2023/05/Black-soldier-fly-iStock-Wirestock-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "\ud83c\udfa5Foodtech investing: \u2018You can\u2019t escape the fundamentals. You have to produce something that adds significant value\u2019",
-      "Title_URL": "https://agfundernews.com/%f0%9f%8e%a5foodtech-investing-you-cant-escape-the-fundamentals-you-have-to-produce-something-that-adds-significant-value",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/10/Andrew-Ive-Big-Idea-Ventures-300x187.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "From driverless cars to precision ag with eFeed cofounder Kumar Ranjan: \u2018I\u2019m kind of an accidental entrepreneur\u2019",
-      "Title_URL": "https://agfundernews.com/from-driverless-cars-to-precision-ag-with-efeed-cofounder-kumar-ranjan-im-kind-of-an-accidental-entrepreneur",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/08/Kumar-Ranjan-eFeed-300x215.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    },
-    {
-      "Title": "Israel-Gaza conflict not \u201cthe whole story\u201d behind plunge in agrifoodtech funding",
-      "Title_URL": "https://agfundernews.com/israel_funding_since_conflict",
-      "Image": "https://agfundernews.com/wp-content/uploads/2024/02/NH-in-cherry-2-300x200.jpg",
-      "Author": "By ",
-      "Author1": "",
-      "Description": "",
-      "Field": "<div>Sample HTML content for Field</div>",
-      "Text": "Sample text content for Text."
-    }
-  ]
+  "news":     [
+      {
+        "blogImgLink href": "https://www.farmsahel.org/public-interest-registry-names-farmsahel-as-2024-org-impact-awards-finalist",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/2024+.ORG+Impact+Awards+Finalist+%287%29-1920w.png",
+        "Title": "Public Interest Registry Names FarmSahel as 2024 .ORG Impact Awards Finalist",
+        "Author": "By FarmSahel",
+        "Author1": "14-Aug-24",
+        "Description": "On August 13, 2024, Public Interest Registry (PIR), the organization behind the                     .ORG domain, proudly announced that FarmSahel has been selected as                               a finalist for the 2024 .ORG Impact Awards. This esteemed global awards program honors exceptional mission-driven individuals and organizations worldwide for their significant contributions to society.                                                              Chosen from over 1,700 applications spanning nearly 90 countries, FarmSahel stood out for its efforts to unlock the potential of Sahel communities to achieve economic freedom through sustainable permaculture.                                                              All winners will be revealed at an in-person awards ceremony on October 8 in Washington, D.C. Finalists from around the world will gather for the event, with each receiving a donation of $2,500 USD. Additionally, all finalists, including FarmSahel, will compete for larger donations ranging from $10,000 to $50,000 USD.                                                              The 35 finalists represent the top five entries in each of the seven award categories:                                                              ● Community Building                                                              ● Quality Education for All                                                              ● Environmental Stewardship                                                              ● Diversity, Equity, and Inclusion                                                              ● Health and Healing                                                              ● Hunger and Poverty                                                              ● Rising Stars (leaders under 25 making a difference in their communities)                                                              FarmSahel is a finalist in the Hunger and Poverty category. Winners across all categories, including the prestigious .ORG of the Year, will be announced during the .ORG Impact Awards celebration on October 8.                                                              The .ORG of the Year winner will receive a $50,000 USD donation, while winners of the other categories will each receive $10,000 USD. Beyond the financial award, the recognition from the .ORG Impact Awards will help elevate the profiles of winning organizations, boosting donations, funding, talent acquisition, partnership development, and audience reach."
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/water-in-ouda",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/0f140a3f-f262-4e2e-9596-bea3a0ed8922+3-1920w.JPG",
+        "Title": "Water in Ouda!",
+        "Author": "By FarmSahel",
+        "Author1": "27-Mar-24",
+        "Description": "Dear Supporters,                                                    We wanted to take a moment to express our deepest gratitude to The PEF's generous contributions towards digging a water well for the women farmers of Ouda village. Your support has truly made a significant impact on the lives of these hardworking individuals and their entire community.                                                              Thanks to your donations, the women farmers of Ouda now have access to clean drinking water, which is essential for their health and well-being. Moreover, the availability of irrigation systems will enable them to cultivate off-season vegetables, increasing their crop yields and improving their livelihoods. Your generosity has empowered these women to practice sustainable farming and secure a brighter future for themselves and their families.                                                              We cannot emphasize enough the profound difference your donations have made. Through your kindness and compassion, you have brought hope and positive change to a community that greatly needed it. Your belief in our mission and your willingness to contribute have truly touched our hearts.                                                              On behalf of the women farmers of Ouda village, we extend our heartfelt appreciation for your support. Your kindness has inspired us to continue working tirelessly to improve the lives of those in need. We will keep you updated on the progress of the water well project and its ongoing impact on the community.                                                              Once again, thank you for your incredible generosity and for being champions of positive change. Your support has made a lasting difference, and we are forever grateful.                                                              With sincere gratitude,                                                              Madjalia Seynou                               Executive Director                               FarmSahel"
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/womens-world-summit-foundation-wwsf-names-madjalia-seynou-founder-and-executive-director-of-farmsahel-as-2023-women-creativity-in-rural-life-awardee",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/IMG_2875-1920w.jpg",
+        "Title": "Women’s World Summit Foundation (WWSF) Names Madjalia Seynou, Founder and Executive Director of FarmSahel as 2023 Women Creativity in Rural Life Awardee",
+        "Author": "By FarmSahel",
+        "Author1": "13-Oct-23",
+        "Description": "This recognition is a testament to her dedication and passion for sustainable rural development.                                                    We owe a huge thanks to Anna Taft of the Tandana Foundation for nominating Madjalia for this Award, and to all the mentors and supporters who have played a vital role in this journey.                                                              A special shoutout to our outstanding FarmSahel team on the ground, whose hard work and commitment have yielded remarkable results. This achievement is a reflection of your unwavering dedication.                                                              Let's not forget the remarkable women beneficiaries of FarmSahel, whose tireless efforts and eagerness to learn have been instrumental in making this milestone possible.                                                              This award marks a new chapter, and we look forward to many more accolades in the future. Together, we'll continue to empower rural women and build sustainable communities."
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/thank-you-for-the-water-well",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/9f1c5357-a0d6-46f9-9964-834280a8ecf8+2-1920w.JPG",
+        "Title": "Water in Simbri!",
+        "Author": "By Madjalia Seynou",
+        "Author1": "21-Jun-23",
+        "Description": "Dear Donors,                                                    We wanted to take a moment to express our deepest gratitude for your generous contributions towards digging a water well for the women farmers of Simbri village in Bindé. Your support has truly made a significant impact on the lives of these hardworking individuals and their entire community.                                                              Thanks to your donations, the women farmers now have access to clean drinking water, which is essential for their health and well-being. Moreover, the availability of irrigation systems will enable them to cultivate off-season vegetables, enhancing their crop yields and livelihoods. Your compassionate act has empowered these women to achieve sustainable farming practices and secure a brighter future for themselves and their families.                                                              We cannot emphasize enough the profound difference your donations have made. Through your kindness and generosity, you have brought hope and positive change to a community that greatly needed it. Your belief in our cause and your willingness to contribute have truly touched our hearts.                                                              On behalf of the women farmers of Simbri village, we extend our heartfelt appreciation for your support. Your kindness and empathy have inspired us to continue working tirelessly to improve the lives of those in need. We will keep you updated on the progress of the water well project and its impact on the community.                                                              Once again, thank you for your incredible generosity and for being champions of positive change. Your support has made a lasting difference, and we are forever grateful.                                                              With sincere gratitude,                                                              Madjalia Seynou                               Executive Director                               FarmSahel"
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/stop-huger-names-madjalia-seynou-as-2023-women-for-zero-hunger-program-finalists",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/340998586_947082346305826_4943992481283238936_n-1920w.jpg",
+        "Title": "Stop Huger Names Madjalia Seynou as 2023 Women for Zero Hunger Program finalist",
+        "Author": "By FarmSahel",
+        "Author1": "10-Apr-23",
+        "Description": "We are thrilled to Announce that Madjalia Seynou, Founder and Executive Director of FarmSahel is a 2023 Women for Zero Hunger Program Finalist!                                                    Each finalist presented inspiring projects tackling hunger and food insecurity across Africa. Their innovative ideas, passionate teams, and demonstrably positive community impact were truly remarkable.                                                              Congratulations to all Winners!                       FarmSahel, Women Smiles Uganda and ChildVoice International who have been selected for their exceptional contributions to fighting against hunger in Africa!                                                                         These incredible women will receive crucial financial support and a transformative six-month mentorship program to further empower their work.                                                              The grand prize winner, to be announced at the end of the year, will also have the opportunity to showcase their project at the 2024 Stop Hunger Event, unlocking additional crowdfunding potential.                                                              WIA Philanthropy and Stop Hunger are eager to support these trailblazing leaders over the next six months."
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/advanced-weather-prediction-in-burkina-faso",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/DFCDC30A-AEF8-4436-8601-5EE6F7E0EF48-1920w.jpg",
+        "Title": "Advanced Weather Prediction in Burkina Faso",
+        "Author": "By Joe Marrone",
+        "Author1": "09-Feb-23",
+        "Description": "In late 2022 Burkina Faso was one of the western Sahel countries to receive an onslaught of heavy and unpredictable rain. From June to October of 2022, over 800 people died, and flooding destroyed millions of hectares of farmland. Human-caused climate change made the 2022 wet season 20% more severe, exacerbating the chronic food security crisis facing Burkina Faso and the Sahel. Crops in most of the Western Sahel received 40% less water than needed. As a result, in Burkina Faso, crop production dropped by 10% compared to the previous five-year average.                                                                                                 Food prices rose significantly due to a low harvest and a lack of imports hampered by the war in Ukraine. Experts wanted to find a link between the 2021 drought and the 2022 deadly rainfall in the Sahel. Unfortunately, it was impossible to detect trends or plan preventative measures due to a lack of weather instruments.                                                               Now Burkina Faso is modernizing its technology to track and predict the weather as the onslaught of climate change continues. The European Union funded a pilot program called ClimSA which started in Burkina Faso and is now moving to 17 other West African countries. This program allows countries like Burkina Faso to better predict and track weather. Over 300 stations across Burkina Faso take measurements of temperature, precipitation, humidity, radiation levels, and atmospheric pressure. With this information, trained Burkinabe meteorologists can refine forecasts and monitor the impact of climate change.                                                               Weather stations and weather prediction systems were severely lacking across the entire continent of Africa. From 1990 to 2019, Africa received only 3.5% of global funding for climate research. Now, with the ClimSA program, meteorologists are able to communicate better with the general public.                       In Burkina Faso, agricultural bulletins are sent to local radio stations in eight different languages with specialized weather reports. With over 900,000 daily listeners, farmers are taking advantage of the new information. They are able to know when to plant and listen to seasonal weather forecasts. The meteorologists also use the large radio audience to explain to farmers how to improve yields, manage water, and refresh degraded soil.                                                                                                The information collected has shown that there has been a steady increase in temperatures in Burkina Faso over the years. Rainfall is coming late in the season and only as heavy and destructive downpours.                       As meteorologists were setting up the new advanced weather systems across Burkina Faso, in Egypt, a breakthrough was made at COP27. The United Nations Climate Change conference provided an agreement called \"loss and damage,\" which plans to fund vulnerable countries hit hard by climate disasters. The governments involved in creating the agreement will establish a transitional committee to make recommendations on funding arrangements at COP28. This committee's first meeting will be in March of 2023.                                                                                                For the globe to transition into a low-carbon economy, it is estimated to cost between $4 to $6 trillion a year. Activists continue to worry about the promise of change, but the lack of action as developed countries have not yet met the $100 billion per year by 2020 as promised.                                                              The new loss and damage fund will help countries like Burkina Faso continue to mitigate climate change disasters. ClimSA is another tool that will be life-saving to farmers and rural Burkinabe people who may be in a storm's path. But, unfortunately, developed countries need to do more not only to finance but to transition into a zero-carbon economy.                                                                                             https://unfccc.int/news/cop27-reaches-breakthrough-agreement-on-new-loss-and-damage-fund-for-vulnerable-countries                                                              https://www.lemonde.fr/en/le-monde-africa/article/2022/11/09/cop27-burkina-faso-uses-improved-methods-to-predict-rainfall-and-extreme-weather-events_6003529_124.html                                                              https://www.carbonbrief.org/west-africas-deadly-rainfall-in-2022-made-80-times-more-likely-by-climate-change/"
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/making-an-impact-around-the-world",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/IMG_8155-1920w.JPG",
+        "Title": "Making an Impact Around the World",
+        "Author": "By Joe Marrone",
+        "Author1": "24-Sep-22",
+        "Description": "Africa is a beautiful country that has seen absolute horrors entirely out of her control. Africa’s vast and diverse wilderness is breathtaking but disappearing, and her population is growing but unstable. Yet, through all the hardships faced on the continent, the everyday people of Africa have shown their resilience and ability to keep looking forward, not giving up no matter the difficulties they face. As FarmSahel continues to help the everyday rural farmers of Burkina Faso, we must remember the dedication Burkinabe people have not to allow their uncontrollable situation stop them from achieving greatness."
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/the-discovery-of-agriculture",
+        "Image": "https://lirp.cdn-website.com/md/pexels/dms3rep/multi/opt/pexels-photo-221016-1920w.jpeg",
+        "Title": "The Discovery of Agriculture",
+        "Author": "By Joe Marrone",
+        "Author1": "26-Aug-22",
+        "Description": "Evolutionary history constantly changes as scientists find new fossil records and archeologists reinterpret old evidence. Although, what has remained true is modern humans’ first continent, Africa. It is here that the entire world as we know it started. Ninety thousand years ago, the first people migrated out of Africa to explore a new world and create new cultures, languages, and technologies. One of these developments was one that completely changed the way humans lived, domestication.                                                                         As hunter-gatherers, humans migrated alongside their food. They had no permanent settlements, and everyone worked together to feed their small tribe. Eventually, agriculture started to seep into the lives of people. The exact time and way ancient humans first domesticated plants and animals is still not known. Archaeologists believed that once a tribe learned about agriculture, they switched entirely and that this way of life spread worldwide, hence the name agricultural revolution. However, recently this theory has been disproven. Some tribes in Africa kept to their hunter-gatherer lifestyle, while others took a hybrid approach. Archeological records also indicate that humans discovered agriculture around the late stone age when people carved stones into specific shapes for weapons and tools.                                                              Another misconception many people have is that the discovery of agricultural production happened in one place. In reality, cultures worldwide discovered domestication in multiple places, but the exact process of how it came about will never be known. However, archeologists and historians have a consensus on the most likely way plant and animal domestication was discovered.                                                              It is believed that the gatherers of the tribe started to protect certain crops, mostly cereals like sorghum and millets. People would protect the crops by weeding and resowing their seeds. Gatherers soon found that resowing healthier crops produced better crops the following year. True domestication came when a family of crops became dependent on human intervention. As the years went by, the plant would no longer be able to compete with weeds but would produce a much higher yield.                                                              The same process took place with the domestication of wild animals. Again, the members of the tribe would protect the healthier wild animals. The animals would be herded together and brought to better grazing sites to increase their size. Larger animals produced more milk and meat, but the animals now required human assistance to survive. The agricultural revolution was long and drawn out, but its impacts changed humans’ entire understanding of the world!                                                              People around the world and in Africa started settling. Instead of makeshift shelters, people began to use mud, thatch, and even stones to create permanent housing. With the rise of agriculture, people began to develop better tools, use them, and be able to store them. They were no longer restricted to only taking what they could carry on their backs. Even more importantly, as people began settling in fertile regions and having a reliable food source, they had more children. Once seen as a burden to carry and care for, the entire family helped raise newborn babies. They would soon be in the fields helping their family with the harvest. Families also gained access to a surplus. If families were able to produce more than they could consume, they would have food security through bad harvests or severe weather. They would also be able to trade with artisans for other goods.                                                              Agriculture completely changed the way human beings interacted with their environment. They no longer lived in harmony with nature, migrating with the weather and animals. This surplus quickly started to create classes between rich and poor. However, this change was much more gradual than recently believed. Many early farming communities still relied heavily on hunting. Some communities simply domesticated animals, migrating to the best feeding spots every season. Archaeologists believe that most of Africa’s traditional religions gained a spiritual element during the agricultural revolution. People now had to rely on the weather and the varying climate. This brought about prayers for rain, fertility, and a good harvest.                                                              Plant and animal domestication was a long and slow process but soon took over every corner of the world. It became embedded in ancient people’s lifestyles and religions. The agricultural revolution was a significant turning point in the history of homo sapiens. We still rely heavily on farm production, and FarmSahel is working to ensure farmers can produce crops for generations.                                                                                             Shillington, Kevin. History of Africa. Fourth ed., Red Globe Press, 2019."
+      },
+      {
+        "blogImgLink href": "https://www.farmsahel.org/burkina-fasos-resilient-culture",
+        "Image": "https://lirp.cdn-website.com/a652d47c/dms3rep/multi/opt/file-b83b8ca0-1920w.png",
+        "Title": "Burkina Faso’s Resilient Culture",
+        "Author": "By Joe Marrone",
+        "Author1": "08-Aug-22",
+        "Description": "On August 5th, Burkina Faso celebrated its 62nd Independence Day! Colonial rule was brutal to the African people, and it decimated cultures. Luckily, the people of Burkina Faso stood tall against French rule and are still able to practice those ancient traditions that their ancestors participated in generations ago.                                                                         It wasn’t until Thomas Sankara took power in 1983 in a bloodless coup when The Republic of Upper Volta officially became Burkina Faso. Sankara chose the name Burkina Faso from two of the country’s most common languages. As an attempt to drive away corruption and gain greater autonomy from foreign influence, the name roughly translates to ‘Land of Honest People.’ Unfortunately, the political situation of Burkina Faso has not improved with continued coups, violence, and poverty. However, the Burkinabe people have never waivered and continue practicing their traditional culture, especially in rural areas.                                                              While French is the official language of Burkina Faso, there are over 70 languages throughout the country, 60 of which are indigenous to the region. Each of these languages has its own myths, spiritual traditions, and cultures which survived the onslaught of western colonization. Overall, the traditional beliefs of many indigenous cultures differ from western cultures. Burkina Faso’s traditional ideas focus on an inter-dependence between communities and living in harmony with nature. Traditional culture focuses on living well, not living better, which helps deter conflict between ethnic groups.                                                              With such deep roots in traditional culture, Burkina Faso is rich in music, clothing, and rituals. Traditional music often consisted of drums, flutes, and stringed instruments. In addition, in the west of the country, an instrument called the balophon is made with dried gourds. Dancers usually accompany music in colorful costumes. Music is such an important aspect of traditional culture that Burkina Faso holds a biennial festival called the International Festival of Masks and the Arts or FESTIMA.                                                              The International Festival of Masks and the Arts started in 1996 and occurs every other year, falling on even years. The fifteenth festival took place in early March 2020 and lasted several days. The festival is held in Burkina Faso, the most recent in Bankuy. Thousands of people come to see dancers in traditional clothes and masks perform ancient rituals from west African countries. There is usually a translator at the festival to help interpret the dance being performed. While music and dance are integral to the traditional culture of Burkina Faso, this festival focuses on the protection of Masks that are very important to the Mossi ethnic group.                                                              The Mossi are the largest ethnic group in Burkina Faso, accounting for about 52% of the population. The ancient Mossi empire controlled a large portion of the center of Upper Volta. The Nyonyose, farmers and spiritual segments of ancient Mossi culture, used masks in rituals and religious observances. Archaeologists found that the Mossi primarily used masks at burials, especially for leading elders and chiefs. Rituals would be performed continuously after an elder had died since elders had the most respect in the Mossi hierarchical system. It is believed that Masks allowed the spirit to pass into the world of ancestors. It is believed without a proper funeral the spirit would cause trouble for their descendants. Thick, vibrant costumes accompanied masks. Masks are still sacred in many traditional parts of Burkina Faso and are seen as a link to spirits and nature.                                                              These traditional parts of Burkina Faso are usually rural regions. They have relied on oral tradition to pass down poems, folk tales, songs, and more. It wasn’t until late into colonization that written literature came to the Burkinabe people, some of whom started to write down oral stories, mostly from the Mossi ethnic group.                                                              While cultural tradition and language have survived colonial rule, new problems are bringing Burkina Faso’s rich culture into demise. Most notably, young people are flocking to cities to find higher-paying jobs. These cities do not follow the traditional culture and are much more westernized. Second, the noble aspects of traditional Burkina Faso culture are disappearing as life becomes more difficult for the rural population. Third, climate change, internally displaced people, and terrorism forced some groups to have forgotten about living well and in harmony with nature.                                                              FarmSahel hopes to continue or bring back that ancient tradition of living in harmony with nature. Our programs are designed to help mitigate the effect of climate change, allow villages to better absorb the impact of migrants, and bring harmony back between the agriculturalists and their land.                                                                                                                            https://www.aljazeera.com/gallery/2016/3/13/in-burkina-faso-festima-a-festival-of-african-masks                               https://www.iexplore.com/articles/travel-guides/africa/burkina-faso/history-and-culture                               https://en.wikipedia.org/wiki/Mossi_people#:~:text=The%20Mossi)%20are%20a%20Gur,or%20about%2011.1%20million%20people.                               https://www.worldatlas.com/articles/the-culture-of-burkina-faso.html                               https://barkafoundation.org/burkina-faso-history-culture-climate-people-more/"
+      }
+    ]
 }

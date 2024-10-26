@@ -24,6 +24,7 @@ class _NewsState extends State<News> {
     try {
       final String response = await rootBundle.loadString('image/news.json');
       final data = await json.decode(response);
+      print('Decoded data: $data');
       setState(() {
         _news = data["news"] ?? [];
         _isLoading = false;
@@ -56,9 +57,9 @@ class _NewsState extends State<News> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) =>
-                                      BlogDetials(blog: _news[index]),
-                                ),
+                                    builder: (context) => DetailsPage(
+                                        content: _news[index],
+                                        contentType: 'News')),
                               );
                             },
                             child: Padding(
