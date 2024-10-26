@@ -5,6 +5,14 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+        body: Column(children: [
+      SizedBox(
+        height: 10,
+      ),
+      Row(
+        children: [TextField(), Icon(Icons.search)],
+      )
+    ]));
   }
 }
