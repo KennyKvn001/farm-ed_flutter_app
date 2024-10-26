@@ -19,7 +19,7 @@ class SignupPage extends StatelessWidget {
                   const SizedBox(height: 80),
                   Image.asset('image/logo.png', height: 100),
                   // Add your logo here
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 18),
                   const Text(
                     "Sign Up",
                     style: TextStyle(
