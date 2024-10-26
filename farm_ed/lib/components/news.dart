@@ -3,15 +3,15 @@ import 'package:farm_ed/pages/blog_detials.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class MyBlogs extends StatefulWidget {
-  const MyBlogs({Key? key}) : super(key: key);
+class News extends StatefulWidget {
+  const News({Key? key}) : super(key: key);
 
   @override
-  State<MyBlogs> createState() => _MyBlogsState();
+  State<News> createState() => _NewsState();
 }
 
-class _MyBlogsState extends State<MyBlogs> {
-  List<dynamic> _blogs = [];
+class _NewsState extends State<News> {
+  List<dynamic> _news = [];
   bool _isLoading = true;
 
   @override
@@ -22,16 +22,17 @@ class _MyBlogsState extends State<MyBlogs> {
 
   Future<void> readJson() async {
     try {
-      final String response = await rootBundle.loadString('image/blog.json');
+      final String response = await rootBundle.loadString('image/news.json');
       final data = await json.decode(response);
+      print('Decoded data: $data');
       setState(() {
-        _blogs = data["blogs"] ?? [];
+        _news = data["news"] ?? [];
         _isLoading = false;
       });
     } catch (e) {
-      print('Error loading blogs: $e');
+      print('Error loading news: $e');
       setState(() {
-        _blogs = [];
+        _news = [];
         _isLoading = false;
       });
     }
@@ -46,10 +47,10 @@ class _MyBlogsState extends State<MyBlogs> {
           Expanded(
             child: _isLoading
                 ? Center(child: CircularProgressIndicator())
-                : _blogs.isEmpty
-                    ? Center(child: Text('No blogs available'))
+                : _news.isEmpty
+                    ? Center(child: Text('No news available'))
                     : ListView.builder(
-                        itemCount: _blogs.length,
+                        itemCount: _news.length,
                         itemBuilder: (context, index) {
                           return InkWell(
                             onTap: () {
@@ -57,8 +58,8 @@ class _MyBlogsState extends State<MyBlogs> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => DetailsPage(
-                                        content: _blogs[index],
-                                        contentType: 'Blog')),
+                                        content: _news[index],
+                                        contentType: 'News')),
                               );
                             },
                             child: Padding(
@@ -69,7 +70,7 @@ class _MyBlogsState extends State<MyBlogs> {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(8),
                                     child: Image.network(
-                                      _blogs[index]['Image'] ??
+                                      _news[index]['Image'] ??
                                           'https://via.placeholder.com/80',
                                       width: 80,
                                       height: 80,
@@ -83,11 +84,11 @@ class _MyBlogsState extends State<MyBlogs> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Blog',
+                                          'News',
                                           style: TextStyle(color: Colors.grey),
                                         ),
                                         Text(
-                                          _blogs[index]['Title'] ?? 'No title',
+                                          _news[index]['Title'] ?? 'No title',
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 16),
@@ -95,8 +96,8 @@ class _MyBlogsState extends State<MyBlogs> {
                                           overflow: TextOverflow.ellipsis,
                                         ),
                                         Text(
-                                          _blogs[index]['Description'] ??
-                                              'No Discription',
+                                          _news[index]['Description'] ??
+                                              'No Description',
                                           style: TextStyle(
                                               fontWeight: FontWeight.normal,
                                               fontSize: 16),
