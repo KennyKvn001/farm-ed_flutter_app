@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Featured extends StatelessWidget {
-  final Map<String, dynamic> blog;
-  const Featured({Key? key, required this.blog}) : super(key: key);
+  final Map<String, dynamic> content;
+  final String contentType;
+  const Featured({Key? key, required this.content, required this.contentType})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class Featured extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.network(
-                  blog['Image'] ?? 'https://via.placeholder.com/80',
+                  content['Image'] ?? 'https://via.placeholder.com/80',
                   width: 80,
                   height: 80,
                   fit: BoxFit.cover,
@@ -28,18 +30,18 @@ class Featured extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Blog',
+                      contentType,
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(
-                      blog['Title'] ?? 'No title',
+                      content['Title'] ?? 'No title',
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      blog['Description'] ?? 'No Discription',
+                      content['Description'] ?? 'No Discription',
                       style: TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 16),
                       maxLines: 2,
