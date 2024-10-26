@@ -22,25 +22,25 @@ class Featured extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              SizedBox(width: 16),
+              const SizedBox(width: 16),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       'Blog',
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(
                       blog['Title'] ?? 'No title',
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
                       blog['Description'] ?? 'No Discription',
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 16),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,

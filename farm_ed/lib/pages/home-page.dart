@@ -132,9 +132,9 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: _isLoading
-                    ? Center(child: CircularProgressIndicator())
+                    ? Center(child: const CircularProgressIndicator())
                     : _blogs.isEmpty
-                        ? Center(child: Text('No blogs available'))
+                        ? const Center(child: Text('No blogs available'))
                         : Featured(blog: _blogs[3]),
               ),
             )

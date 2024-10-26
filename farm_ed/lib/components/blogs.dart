@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class MyBlogs extends StatefulWidget {
-  const MyBlogs({Key? key}) : super(key: key);
+  const MyBlogs({super.key});
 
   @override
   State<MyBlogs> createState() => _MyBlogsState();
@@ -29,7 +29,6 @@ class _MyBlogsState extends State<MyBlogs> {
         _isLoading = false;
       });
     } catch (e) {
-      print('Error loading blogs: $e');
       setState(() {
         _blogs = [];
         _isLoading = false;
@@ -45,9 +44,9 @@ class _MyBlogsState extends State<MyBlogs> {
         children: [
           Expanded(
             child: _isLoading
-                ? Center(child: CircularProgressIndicator())
+                ? const Center(child: CircularProgressIndicator())
                 : _blogs.isEmpty
-                    ? Center(child: Text('No blogs available'))
+                    ? const Center(child: Text('No blogs available'))
                     : ListView.builder(
                         itemCount: _blogs.length,
                         itemBuilder: (context, index) {
@@ -76,19 +75,19 @@ class _MyBlogsState extends State<MyBlogs> {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  SizedBox(width: 16),
+                                  const SizedBox(width: 16),
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text(
+                                        const Text(
                                           'Blog',
                                           style: TextStyle(color: Colors.grey),
                                         ),
                                         Text(
                                           _blogs[index]['Title'] ?? 'No title',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 16),
                                           maxLines: 1,
@@ -97,7 +96,7 @@ class _MyBlogsState extends State<MyBlogs> {
                                         Text(
                                           _blogs[index]['Description'] ??
                                               'No Discription',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontWeight: FontWeight.normal,
                                               fontSize: 16),
                                           maxLines: 2,

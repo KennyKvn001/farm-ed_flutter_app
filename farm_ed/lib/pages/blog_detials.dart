@@ -15,7 +15,7 @@ class BlogDetials extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40)),
                   child: Image.network(
@@ -25,11 +25,11 @@ class BlogDetials extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     'Blog',
                     style: TextStyle(color: Colors.grey, fontSize: 20),
@@ -39,7 +39,7 @@ class BlogDetials extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     blog['Title'] ?? 'No Title',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
@@ -49,11 +49,11 @@ class BlogDetials extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     blog['Author1'] ?? 'No Dates',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Divider(
                     color: Colors.grey,
                   ),
@@ -63,11 +63,11 @@ class BlogDetials extends StatelessWidget {
                   child: Text(
                     blog['Description'] ?? 'No Description',
                     style:
-                        TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+                        const TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
                     textAlign: TextAlign.justify,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 )
               ],
@@ -85,7 +85,7 @@ class BlogDetials extends StatelessWidget {
                   color: Colors.green[700],
                   borderRadius: BorderRadius.circular(30)),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new_rounded,
                   color: Colors.white,
                 ),
