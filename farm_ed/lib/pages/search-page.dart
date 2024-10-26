@@ -1,28 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        scaffoldBackgroundColor: Colors.white,
-      ),
-      home: const NewsHomePage(),
-    );
-  }
-}
-
-class NewsHomePage extends StatelessWidget {
-  const NewsHomePage({Key? key}) : super(key: key);
-
+class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,58 +10,33 @@ class NewsHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Responsive Search Bar
+            // Search Bar
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  return Container(
-                    width: constraints.maxWidth > 600 
-                        ? constraints.maxWidth * 0.7 
-                        : constraints.maxWidth,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF00C853),
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.green.withOpacity(0.2),
-                          spreadRadius: 1,
-                          blurRadius: 4,
-                          offset: const Offset(0, 2),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    children: [
+                      const Text(
+                        'Virtual Reality',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
                         ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Row(
-                        children: [
-                          const Text(
-                            'Virtual Reality',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const Spacer(),
-                          Container(
-                            padding: const EdgeInsets.all(8),
-                            decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.2),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: const Icon(
-                              Icons.search,
-                              color: Colors.white,
-                              size: 20,
-                            ),
-                          ),
-                        ],
                       ),
-                    ),
-                  );
-                },
+                      const Spacer(),
+                      IconButton(
+                        icon: const Icon(Icons.search, color: Colors.white),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
 
@@ -109,22 +64,20 @@ class NewsHomePage extends StatelessWidget {
             // Video Cards
             SizedBox(
               height: 200,
-              child: ListView.builder(
+              child: ListView(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  final titles = [
-                    'The IPO parade continues as Wish files',
-                    'Insurtech startup PasarPolis gets'
-                  ];
-                  return Padding(
-                    padding: EdgeInsets.only(
-                      right: index < 1 ? 16.0 : 0.0,
-                    ),
-                    child: VideoCard(title: titles[index]),
-                  );
-                },
+                children: [
+                  VideoCard(
+                    title: 'The IPO parade continues as Wish files',
+                    imageUrl: 'assets/video1.jpg',
+                  ),
+                  const SizedBox(width: 16),
+                  VideoCard(
+                    title: 'Insurtech startup PasarPolis gets',
+                    imageUrl: 'assets/video2.jpg',
+                  ),
+                ],
               ),
             ),
 
@@ -151,35 +104,36 @@ class NewsHomePage extends StatelessWidget {
 
             // News List
             Expanded(
-              child: ListView.builder(
+              child: ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                itemCount: 6,
-                itemBuilder: (context, index) {
-                  final newsItems = [
-                    'Insurtech startup PasarPolis gets \$54 million — Series B',
-                    'Hypatos gets \$11.8M for a deep learning approach',
-                    'The IPO parade continues as Wish files, Bumble targets continues as parade',
-                    'The IPO parade continues as Wish files, Bumble targets continues as parade',
-                    'Hypatos gets \$11.8M for a deep learning approach',
-                    'Insurtech startup PasarPolis gets \$54 million — Series B',
-                  ];
-                  return NewsItem(title: newsItems[index]);
-                },
+                children: const [
+                  NewsItem(
+                    title:
+                        'Insurtech startup PasarPolis gets \$54 million — Series B',
+                  ),
+                  NewsItem(
+                    title: 'Hypatos gets \$11.8M for a deep learning approach',
+                  ),
+                  NewsItem(
+                    title:
+                        'The IPO parade continues as Wish files, Bumble targets continues as parade',
+                  ),
+                  NewsItem(
+                    title:
+                        'The IPO parade continues as Wish files, Bumble targets continues as parade',
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class VideoCard extends StatelessWidget {
   final String title;
+  final String imageUrl;
 
   const VideoCard({
     Key? key,
     required this.title,
+    required this.imageUrl,
   }) : super(key: key);
 
   @override
@@ -188,10 +142,8 @@ class VideoCard extends StatelessWidget {
       width: 280,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        image: const DecorationImage(
-          image: NetworkImage(
-            'https://picsum.photos/280/200',
-          ),
+        image: DecorationImage(
+          image: AssetImage(imageUrl),
           fit: BoxFit.cover,
         ),
       ),
@@ -224,19 +176,13 @@ class VideoCard extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 8,
-            right: 8,
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
-                shape: BoxShape.circle,
-              ),
-              child: const Icon(
-                Icons.play_arrow,
-                color: Colors.white,
-                size: 24,
-              ),
+            top: 50,
+            left: 0,
+            right: 0,
+            child: Icon(
+              Icons.play_circle_outline,
+              color: Colors.white.withOpacity(0.7),
+              size: 48,
             ),
           ),
         ],
@@ -263,8 +209,6 @@ class NewsItem extends StatelessWidget {
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
       ),
     );
   }
