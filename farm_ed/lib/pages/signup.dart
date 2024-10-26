@@ -16,7 +16,7 @@ class SignupPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 80),
-                    Image.asset('assets/images/logo.png', height: 100), // Add your logo here
+                    Image.asset('image/logo.png', height: 100), // Add your logo here
                     const SizedBox(height: 20),
                     const Text(
                       "Sign Up",
@@ -77,9 +77,9 @@ class SignupPage extends StatelessWidget {
         
             Row(
               //crossAxisAlignment: CrossAxisAlignment.end,
-              children: [Image.asset("assets/images/Vector.png",height:130,),
+              children: [Image.asset("image/images/FarmEd Vector.png",height:130,),
            Spacer(),
-           Image.asset("assets/images/Group 1.png", height:130,)],)
+           Image.asset("image/images/FarmEd Group 2.png", height:130,)],)
           ],
         ),
       ),
@@ -121,7 +121,7 @@ class SignupPage extends StatelessWidget {
       ),
       child: OutlinedButton.icon(
         onPressed: () {},
-        icon: Image.asset('assets/images/google.png', height: 24),
+        icon: Image.asset('image/images/google.png', height: 24),
         // Add Google logo here
         label: const Text(
           "Google",
