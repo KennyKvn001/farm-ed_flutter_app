@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   final _controller = PageController();
 
   List<dynamic> _blogs = [];
+  List<dynamic> _news = [];
   bool _isLoading = true;
 
   @override
@@ -34,10 +35,13 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> readJson() async {
     try {
-      final String response = await rootBundle.loadString('image/blog.json');
-      final data = await json.decode(response);
+      final String blogs = await rootBundle.loadString('image/blog.json');
+      final blogData = await json.decode(blogs);
+      final String news = await rootBundle.loadString('image/news.json');
+      final newsData = await json.decode(news);
       setState(() {
-        _blogs = data["blogs"] ?? [];
+        _blogs = blogData["blogs"] ?? [];
+        _news = newsData["news"] ?? [];
         _isLoading = false;
       });
     } catch (e) {
@@ -125,8 +129,8 @@ class _HomePageState extends State<HomePage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => DetailsPage(
-                        content: _blogs[3], contentType: 'Blog'),
+                    builder: (context) =>
+                        DetailsPage(content: _blogs[3], contentType: 'Blog'),
                   ),
                 );
               },
@@ -135,8 +139,35 @@ class _HomePageState extends State<HomePage> {
                 child: _isLoading
                     ? Center(child: const CircularProgressIndicator())
                     : _blogs.isEmpty
+<<<<<<< HEAD
                         ? const Center(child: Text('No blogs available'))
                         : Featured(blog: _blogs[3]),
+=======
+                        ? Center(child: Text('No blogs available'))
+                        : Featured(contentType: "Blog", content: _blogs[3]),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        DetailsPage(content: _news[3], contentType: 'News'),
+                  ),
+                );
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: _isLoading
+                    ? Center(child: CircularProgressIndicator())
+                    : _news.isEmpty
+                        ? Center(child: Text('No news available'))
+                        : Featured(
+                            content: _news[3],
+                            contentType: "News",
+                          ),
+>>>>>>> c7b2b342dcbb7ddeb94b224fa85d4e6f3ad110cb
               ),
             )
           ]),
