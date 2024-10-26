@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +16,7 @@ class LoginPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 130),
-                    Image.asset('assets/images/logo.png', height: 100),
+                    Image.asset('image/logo.png', height: 100),
                     // Add your logo here
                     const SizedBox(height: 20),
                     const Text(
@@ -75,9 +77,9 @@ class LoginPage extends StatelessWidget {
         
             Row(
               //crossAxisAlignment: CrossAxisAlignment.end,
-              children: [Image.asset("assets/images/Vector.png",height:130,),
+              children: [Image.asset("image/images/FarmEd Group 2.png",height:130,),
                 Spacer(),
-                Image.asset("assets/images/Group 1.png", height:130,)],)
+                Image.asset("assets/images/Group 1.", height:130,)],)
           
           ],
         ),
