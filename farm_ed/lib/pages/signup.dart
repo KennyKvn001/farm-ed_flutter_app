@@ -79,7 +79,7 @@ class SignupPage extends StatelessWidget {
               //crossAxisAlignment: CrossAxisAlignment.end,
               children: [Image.asset("image/images/FarmEd Vector.png",height:130,),
            Spacer(),
-           Image.asset("assets/images/FarmEd Group 2.png", height:130,)],)
+           Image.asset("image/images/FarmEd Group 2.png", height:130,)],)
           ],
         ),
       ),
