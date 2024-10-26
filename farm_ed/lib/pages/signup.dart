@@ -27,72 +27,7 @@ class SignupPage extends StatelessWidget {
                       color: Colors.green,
                     ),
                   ),
-                  const SizedBox(height: 20),
-                  _buildTextField("Username"),
-                  const SizedBox(height: 15),
-                  _buildTextField("Email"),
-                  const SizedBox(height: 15),
-                  _buildTextField("Password", obscureText: true),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      minimumSize: const Size(double.infinity, 50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: const Text(
-                      "Sign up",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-<<<<<<< HEAD
-                    const SizedBox(height: 20),
-                    _buildTextField("Username"),
-                    const SizedBox(height: 15),
-                    _buildTextField("Email"),
-                    const SizedBox(height: 15),
-                    _buildTextField("Password", obscureText: true),
-                    const SizedBox(height: 20),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
-                        minimumSize: const Size(double.infinity, 50),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text(
-                        "Sign up",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:Colors.white),
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    const Text("Or sign up with"),
-                    const SizedBox(height: 10),
-                    _buildGoogleButton(),
-                    const SizedBox(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text("Already have an account? "),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/');
-                          },
-                          child: const Text(
-                            "Login",
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.normal,
-                            ),
-=======
-                  ),
+
                   const SizedBox(height: 20),
                   const Text("Or sign up with"),
                   const SizedBox(height: 10),
@@ -111,7 +46,6 @@ class SignupPage extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.blue,
                             fontWeight: FontWeight.normal,
->>>>>>> 4beefc0ed1edc593e7ddaca0209597ac2ed42b56
                           ),
                         ),
                       ),
