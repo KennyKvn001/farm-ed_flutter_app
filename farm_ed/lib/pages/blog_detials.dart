@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
-class BlogDetials extends StatelessWidget {
-  final Map<String, dynamic> blog; // expect a single blog
+class DetailsPage extends StatelessWidget {
+  final Map<String, dynamic> content; 
+  final String contentType; 
 
-  const BlogDetials({Key? key, required this.blog}) : super(key: key);
+  const DetailsPage({
+    Key? key,
+    required this.content,
+    required this.contentType, 
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class BlogDetials extends StatelessWidget {
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40)),
                   child: Image.network(
-                    blog['Image'] ?? 'https://via.placeholder.com/80',
+                    content['Image'] ?? 'https://via.placeholder.com/80',
                     width: double.infinity,
                     height: 350,
                     fit: BoxFit.cover,
@@ -31,7 +36,7 @@ class BlogDetials extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
-                    'Blog',
+                    contentType,
                     style: TextStyle(color: Colors.grey, fontSize: 20),
                   ),
                 ),
@@ -61,7 +66,7 @@ class BlogDetials extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    blog['Description'] ?? 'No Description',
+                    content['Description'] ?? 'No Description',
                     style:
                         const TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
                     textAlign: TextAlign.justify,
@@ -74,16 +79,16 @@ class BlogDetials extends StatelessWidget {
             ),
           ),
         ),
-
-        //back button
+        // Back button
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Container(
               margin: const EdgeInsets.only(left: 16),
               decoration: BoxDecoration(
-                  color: Colors.green[700],
-                  borderRadius: BorderRadius.circular(30)),
+                color: Colors.green[700],
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: IconButton(
                 icon: const Icon(
                   Icons.arrow_back_ios_new_rounded,
