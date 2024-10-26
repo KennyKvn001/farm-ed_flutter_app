@@ -139,12 +139,11 @@ class _HomePageState extends State<HomePage> {
                 child: _isLoading
                     ? Center(child: const CircularProgressIndicator())
                     : _blogs.isEmpty
-<<<<<<< HEAD
                         ? const Center(child: Text('No blogs available'))
-                        : Featured(blog: _blogs[3]),
-=======
-                        ? Center(child: Text('No blogs available'))
-                        : Featured(contentType: "Blog", content: _blogs[3]),
+                        : Featured(
+                            content: _blogs[3],
+                            contentType: "Blog",
+                          ),
               ),
             ),
             InkWell(
@@ -160,14 +159,13 @@ class _HomePageState extends State<HomePage> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: _isLoading
-                    ? Center(child: CircularProgressIndicator())
+                    ? Center(child: const CircularProgressIndicator())
                     : _news.isEmpty
-                        ? Center(child: Text('No news available'))
+                        ? const Center(child: Text('No news available'))
                         : Featured(
                             content: _news[3],
                             contentType: "News",
                           ),
->>>>>>> c7b2b342dcbb7ddeb94b224fa85d4e6f3ad110cb
               ),
             )
           ]),

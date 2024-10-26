@@ -29,13 +29,8 @@ class Featured extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-<<<<<<< HEAD
-                    const Text(
-                      'Blog',
-=======
                     Text(
                       contentType,
->>>>>>> c7b2b342dcbb7ddeb94b224fa85d4e6f3ad110cb
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(
@@ -46,13 +41,8 @@ class Featured extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-<<<<<<< HEAD
-                      blog['Description'] ?? 'No Discription',
-                      style: const TextStyle(
-=======
                       content['Description'] ?? 'No Discription',
                       style: TextStyle(
->>>>>>> c7b2b342dcbb7ddeb94b224fa85d4e6f3ad110cb
                           fontWeight: FontWeight.normal, fontSize: 16),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,

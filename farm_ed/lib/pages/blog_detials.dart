@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
 class DetailsPage extends StatelessWidget {
   final Map<String, dynamic> content; 
@@ -33,17 +33,17 @@ class DetailsPage extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
                     contentType,
-                    style: TextStyle(color: Colors.grey, fontSize: 20),
+                    style: const TextStyle(color: Colors.grey, fontSize: 20),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
-                    blog['Title'] ?? 'No Title',
+                    content['Title'] ?? 'No Title',
                     style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class DetailsPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
-                    blog['Author1'] ?? 'No Dates',
+                    content['Author1'] ?? 'No Dates',
                     style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ),
