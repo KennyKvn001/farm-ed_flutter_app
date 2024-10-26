@@ -12,15 +12,17 @@ class NotificationsPage extends StatelessWidget {
           Container(
             width: 393, // Specific width
             height: 217, // Specific height
-            color: const Color.fromARGB(255, 3, 139, 28), // Green background color
+            color:
+                const Color.fromARGB(255, 3, 139, 28), // Green background color
             child: Stack(
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
+                Positioned(
+                  top: 10,
+                  left: 10,
                   child: IconButton(
                     icon: const Icon(Icons.arrow_back, color: Colors.white),
                     onPressed: () {
-                      Navigator.pop(context); // Go back
+                      Navigator.pop(context); // Navigate back
                     },
                   ),
                 ),
@@ -45,7 +47,8 @@ class NotificationsPage extends StatelessWidget {
                   children: [
                     Text(
                       'Notifications & alerts',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.notifications, size: 28),
                   ],
@@ -60,7 +63,8 @@ class NotificationsPage extends StatelessWidget {
               itemCount: 5, // Number of notifications
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   child: Container(
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
