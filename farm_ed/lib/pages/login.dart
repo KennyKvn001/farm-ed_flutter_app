@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import '../pages/signup.dart';
+import '../home_screen.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -32,24 +33,42 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(height: 15),
                   _buildTextField("Password", obscureText: true),
                   const SizedBox(height: 20),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      minimumSize: const Size(double.infinity, 50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+        Center(
+          child: GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) =>const HomeScreen()),
+              );
+            },
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Colors.green,
+                  borderRadius: BorderRadius.circular(17),
+                  boxShadow: [
+              BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 2.5,
+              blurRadius: 7,
+              offset: Offset(0, 3),
+    )],
+          ),
+              child: Center(
+                child: Text(
+                  "login",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
                       ),
-                    ),
-                    onPressed: () {},
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
+                ),
+              ),
+        ),
+          ),
+        ),
+
+                    const SizedBox(height: 20),
                   const Text("Or sign up with"),
                   const SizedBox(height: 10),
                   _buildGoogleButton(),
@@ -60,7 +79,10 @@ class LoginPage extends StatelessWidget {
                       const Text("Create new account? "),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, '/signup');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SignupPage()),
+                          );
                         },
                         child: const Text(
                           "Signup",
@@ -114,6 +136,7 @@ class LoginPage extends StatelessWidget {
 
   Widget _buildGoogleButton() {
     return Container(
+      width: 200,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

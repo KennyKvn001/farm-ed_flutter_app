@@ -1,3 +1,4 @@
+import 'package:farm_ed/pages/login.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatelessWidget {
@@ -16,9 +17,9 @@ class SignupPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const SizedBox(height: 80),
-                  Image.asset('image/logo.png',
-                      height: 100), // Add your logo here
-                  const SizedBox(height: 18),
+                  Image.asset('image/logo.png', height: 100),
+                  // Add your logo here
+                  const SizedBox(height: 20),
                   const Text(
                     "Sign Up",
                     style: TextStyle(
@@ -27,7 +28,29 @@ class SignupPage extends StatelessWidget {
                       color: Colors.green,
                     ),
                   ),
-
+                  const SizedBox(height: 20),
+                  _buildTextField("Username"),
+                  const SizedBox(height: 15),
+                  _buildTextField("Email"),
+                  const SizedBox(height: 15),
+                  _buildTextField("Password", obscureText: true),
+                  const SizedBox(height: 20),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      minimumSize: const Size(double.infinity, 50),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Text(
+                      "Sign up",
+                      style: TextStyle(fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
                   const SizedBox(height: 20),
                   const Text("Or sign up with"),
                   const SizedBox(height: 10),
@@ -39,7 +62,10 @@ class SignupPage extends StatelessWidget {
                       const Text("Already have an account? "),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, '/login');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>const LoginPage()),
+                          );
                         },
                         child: const Text(
                           "Login",
@@ -55,20 +81,14 @@ class SignupPage extends StatelessWidget {
                 ],
               ),
             ),
+
             Row(
               //crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Image.asset(
-                  "image/images/FarmEd Vector.png",
-                  height: 130,
-                ),
+                Image.asset("image/images/FarmEd Vector.png", height: 130,),
                 Spacer(),
-                Image.asset(
-                  "image/images/FarmEd Group 2.png",
-                  height: 130,
-                )
-              ],
-            )
+                Image.asset("image/images/FarmEd Group 2.png", height: 130,)
+              ],)
           ],
         ),
       ),
@@ -85,8 +105,8 @@ class SignupPage extends StatelessWidget {
         ),
         filled: true,
         fillColor: Colors.grey[200],
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16, vertical: 12),
       ),
     );
   }
@@ -105,7 +125,8 @@ class SignupPage extends StatelessWidget {
             offset: const Offset(0, 5), // X and Y offset of the shadow
           ),
         ],
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(
+            16),
         // Same border radius as the button
       ),
       child: OutlinedButton.icon(
