@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../pages/signup.dart';
 import '../home_screen.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
@@ -9,110 +10,115 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 130),
-                  Image.asset('image/logo.png', height: 100),
-                  // Add your logo here
-                  const SizedBox(height: 18),
-                  const Text(
-                    "Login",
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  _buildTextField("Email"),
-                  const SizedBox(height: 15),
-                  _buildTextField("Password", obscureText: true),
-                  const SizedBox(height: 20),
-        Center(
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) =>const HomeScreen()),
-              );
-            },
-            child: Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.green,
-                  borderRadius: BorderRadius.circular(17),
-                  boxShadow: [
-              BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 2.5,
-              blurRadius: 7,
-              offset: Offset(0, 3),
-    )],
-          ),
-              child: Center(
-                child: Text(
-                  "login",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(height: 130),
+                    Image.asset('image/logo.png', height: 100),
+                    // Add your logo here
+                    const SizedBox(height: 18),
+                    const Text(
+                      "Login",
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
                       ),
-                ),
-              ),
-        ),
-          ),
-        ),
-
+                    ),
                     const SizedBox(height: 20),
-                  const Text("Or sign up with"),
-                  const SizedBox(height: 10),
-                  _buildGoogleButton(),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text("Create new account? "),
-                      GestureDetector(
+                    _buildTextField("Email"),
+                    const SizedBox(height: 15),
+                    _buildTextField("Password", obscureText: true),
+                    const SizedBox(height: 20),
+                    Center(
+                      child: GestureDetector(
                         onTap: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => const SignupPage()),
+                            MaterialPageRoute(
+                                builder: (context) => const HomeScreen()),
                           );
                         },
-                        child: const Text(
-                          "Signup",
-                          style: TextStyle(
-                            color: Colors.blue,
-                            fontWeight: FontWeight.normal,
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          decoration: BoxDecoration(
+                            color: Colors.green,
+                            borderRadius: BorderRadius.circular(17),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 2.5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3),
+                              )
+                            ],
+                          ),
+                          child: Center(
+                            child: Text(
+                              "login",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 31),
-                ],
-              ),
-            ),
-            Row(
-              //crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Image.asset(
-                  "image/images/FarmEd Vector.png",
-                  height: 130,
+                    ),
+
+                    const SizedBox(height: 20),
+                    const Text("Or sign up with"),
+                    const SizedBox(height: 10),
+                    _buildGoogleButton(),
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Create new account? "),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SignupPage()),
+                            );
+                          },
+                          child: const Text(
+                            "Signup",
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 31),
+                  ],
                 ),
-                Spacer(),
-                Image.asset(
-                  "image/images/FarmEd Group 2.png",
-                  height: 130,
-                )
-              ],
-            )
-          ],
+              ),
+              Row(
+                //crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Image.asset(
+                    "image/images/FarmEd Vector.png",
+                    height: 130,
+                  ),
+                  Spacer(),
+                  Image.asset(
+                    "image/images/FarmEd Group 2.png",
+                    height: 130,
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
