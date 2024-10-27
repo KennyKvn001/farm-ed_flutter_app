@@ -1,6 +1,11 @@
 #FarmEd 🌱
 
 Educational platform for farmers and agricultural enthusiasts
+<img src="(https://github.com/user-attachments/assets/9a2cf578-a137-45a7-8124-853b4eeddd19)" alt="Description of the image" width="400"/>
+
+![Screenshot_20241027_165008](https://github.com/user-attachments/assets/9a2cf578-a137-45a7-8124-853b4eeddd19)
+
+
 
 ![Screen_recording_20241027_161359.webm](https://github.com/user-attachments/assets/e061524f-754e-4d60-bd96-0e706af2f72d)
 
@@ -72,19 +77,18 @@ Make changes and save to see updates instantly.
 Folder Structure
 Here’s an overview of the core folder structure:
 
-    /FarmEd
-    │
-    ├── /lib               # Contains Flutter source code
-    │   ├── /screens       # UI screens
-    │   ├── /widgets       # Reusable components
-    │   └── main.dart      # Application entry point
-    │
-    ├── /android           # Android platform files
-    ├── /ios               # iOS platform files
-    ├── /assets            # Images, fonts, etc.
-    └── pubspec.yaml    
-
-![WhatsApp Image 2024-10-27 at 16 12 02_a7ae43fe](https://github.com/user-attachments/assets/6c2906a3-e982-4f4b-8b34-8821a6353fcb)
+      /FarmEd
+      │
+      ├── /lib
+      │   ├── /pages          # Contains different pages of the app
+      │   ├── /components     # Reusable components
+      │   ├── homescreen.dart  # Main home screen of the app
+      │   └── main.dart       # Application entry point
+      │
+      ├── /android            # Android platform files
+      ├── /ios                # iOS platform files
+      ├── /image              # Contains image assets
+      └── pubspec.yaml        
 
 
 License
