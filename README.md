@@ -1,11 +1,11 @@
 <h1>FarmEd 🌱</h1>
+Educational platform for farmers and agricultural enthusiasts<br>
 
-Educational platform for farmers and agricultural enthusiasts
 <img src="https://github.com/user-attachments/assets/9a2cf578-a137-45a7-8124-853b4eeddd19" alt="Description of the image" width="400" style="float:left; margin-right: 10px;"/>
 
-<h3>Table of Contents:</h3>
+<h2>Table of Contents:</h2>
 
-Introduction
+<h2>Introduction</h2>
 Features
 Prerequisites
 Installation
@@ -14,11 +14,11 @@ Running the Application
 Folder Structure
 
 
-#Introduction
+<h2>Introduction</h2>
 
 FarmEd is a mobile application developed to support farmers in Rwanda by providing a comprehensive platform for agricultural education and innovation. The app will serve as a resource hub, offering a wide range of features including instructional videos, informative blog posts, interactive photos, and regularly updated newsletters. Through these resources, farmers will gain access to critical knowledge on modern farming techniques, sustainable practices, and real-time agricultural trends.
 
-#Features
+<h2>Features</h2>
 - User Authentication
   
 - Blog Page
@@ -33,7 +33,7 @@ FarmEd is a mobile application developed to support farmers in Rwanda by providi
 
 
 
-#Prerequisites
+<h2>Prerequisites</h2>
 
 Ensure you have the following tools installed:
 
@@ -46,7 +46,7 @@ Visual Studio Code (or any preferred code editor)
 Installation
 Clone the Repository:
 
-bash
+
 
     git clone https://github.com/Bernice-Awinpang-Akudbilla/FarmEd.git  
      cd FarmEd
@@ -55,7 +55,7 @@ Inside the project directory, run:
 
      flutter pub get
 
-#Running the Application<br>
+<h2>Running the Application</h2><br>
 
 - Start an Emulator or Connect a Device:<br>
 Use Android Studio to launch an emulator or connect a physical device.<br>
@@ -67,7 +67,7 @@ Use Android Studio to launch an emulator or connect a physical device.<br>
 - Hot Reload (during development):
 Make changes and save to see updates instantly.
 
-Folder Structure
+<h2>Folder Structure</h2>
 Here’s an overview of the core folder structure:
 
       /FarmEd
