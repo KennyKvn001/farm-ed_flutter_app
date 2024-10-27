@@ -1,7 +1,8 @@
 FarmEd 🌱
 Educational platform for farmers and agricultural enthusiasts
 
-Table of Contents
+Table of Contents:
+
 Introduction
 Features
 Prerequisites
@@ -9,16 +10,21 @@ Installation
 Setup
 Running the Application
 Folder Structure
-Contributing
-License
+
+
 Introduction
 FarmEd is a Flutter-based mobile platform designed to empower farmers and agricultural enthusiasts by providing access to educational content and the latest farming techniques. This project currently focuses on the frontend, providing an intuitive and user-friendly interface for accessing information.
 
 Features
 - User Authentication
+  
 - Blog Page
+  
 - Search Functionality
+
+- 
 - Newsletter
+
 - Instructional Videos
 - 
 Prerequisites
@@ -61,19 +67,7 @@ Make changes and save to see updates instantly.
 Folder Structure
 Here’s an overview of the core folder structure:
 
-bash
-Copy code
-/FarmEd
-│
-├── /lib               # Contains Flutter source code
-│   ├── /screens       # UI screens
-│   ├── /widgets       # Reusable components
-│   └── main.dart      # Application entry point
-│
-├── /android           # Android platform files
-├── /ios               # iOS platform files
-├── /assets            # Images, fonts, etc.
-└── pubspec.yaml       # Flutter dependencies and configurations
+
 
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
