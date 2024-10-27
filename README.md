@@ -1,6 +1,6 @@
 FarmEd 🌱
 Educational platform for farmers and agricultural enthusiasts
-[Screen_recording_20241027_161359.webm](https://github.com/user-attachments/assets/e061524f-754e-4d60-bd96-0e706af2f72d)
+![Screen_recording_20241027_161359.webm](https://github.com/user-attachments/assets/e061524f-754e-4d60-bd96-0e706af2f72d)
 
 
 Table of Contents:
