@@ -10,26 +10,42 @@ class ProfilePage extends StatelessWidget {
         children: [
           Container(
             width: double.infinity, // Full width
-            height: 217, // Specific height
-            color:
-                const Color.fromARGB(255, 3, 139, 28), // Green background color
+            height: 250, // Specific height
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)),
+              color: const Color.fromARGB(255, 3, 139, 28),
+            ),
             child: Stack(
               children: [
                 // White back arrow at the top left
-                Positioned(
-                  top: 10,
-                  left: 10,
-                  child: IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () {
-                      Navigator.pop(context); // Navigate back
-                    },
+                SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: Colors.green,
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ),
                   ),
                 ),
-                Center(
-                  child: Image.asset(
-                    'image/logo(1).png', // Replace with your logo path
-                    height: 60, // Adjust size as needed
+                Padding(
+                  padding: const EdgeInsets.only(top: 80.0),
+                  child: Center(
+                    child: Image.asset(
+                      'image/logo(1).png', // Replace with your logo path
+                      height: 60, // Adjust size as needed
+                    ),
                   ),
                 ),
               ],
@@ -46,7 +62,7 @@ class ProfilePage extends StatelessWidget {
                   const CircleAvatar(
                     radius: 40, // Set radius for 80x80 icon
                     backgroundColor:
-                        Colors.black, // Background color of the avatar
+                        Colors.grey, // Background color of the avatar
                     child: Icon(
                       Icons.person,
                       size: 50, // Set size for the icon
@@ -88,11 +104,11 @@ class ProfilePage extends StatelessWidget {
                     ),
                     controller: TextEditingController(text: '********'),
                   ),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 100),
                   // Logout Button
                   SizedBox(
-                    width: 326, // Width of the Logout button
-                    height: 43, // Height of the Logout button
+                    width: 360, // Width of the Logout button
+                    height: 50, // Height of the Logout button
                     child: OutlinedButton(
                       onPressed: () {
                         // Handle logout functionality
@@ -105,14 +121,17 @@ class ProfilePage extends StatelessWidget {
                         side: const BorderSide(color: Colors.red),
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
-                      child: const Text('Logout'),
+                      child: const Text(
+                        'Logout',
+                        style: TextStyle(fontSize: 20),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   // Delete Account Button
                   SizedBox(
-                    width: 326, // Width of the Delete Account button
-                    height: 43, // Height of the Delete Account button
+                    width: 360, // Width of the Delete Account button
+                    height: 50, // Height of the Delete Account button
                     child: ElevatedButton(
                       onPressed: () {
                         // Handle delete account functionality
@@ -136,7 +155,11 @@ class ProfilePage extends StatelessWidget {
                                     Navigator.of(context).pop();
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
-                                          content: Text('Account deleted')),
+                                          content: Text(
+                                        'Account deleted',
+                                        style: TextStyle(
+                                            fontSize: 20, color: Colors.white),
+                                      )),
                                     );
                                   },
                                   style: ElevatedButton.styleFrom(
@@ -153,7 +176,10 @@ class ProfilePage extends StatelessWidget {
                         backgroundColor: Colors.red,
                         padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
-                      child: const Text('Delete account'),
+                      child: const Text(
+                        'Delete account',
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
