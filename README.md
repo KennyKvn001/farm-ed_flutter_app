@@ -93,6 +93,5 @@ Here’s an overview of the core folder structure:
       └── pubspec.yaml        
 
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
 
