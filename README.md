@@ -1,7 +1,7 @@
 #FarmEd 🌱
 
 Educational platform for farmers and agricultural enthusiasts
-<img src="https://github.com/user-attachments/assets/9a2cf578-a137-45a7-8124-853b4eeddd19" alt="Description of the image" width="400"/>
+<img src="https://github.com/user-attachments/assets/9a2cf578-a137-45a7-8124-853b4eeddd19" alt="Description of the image" width="400" style="float:left; margin-right: 10px;"/>
 
 Table of Contents:
 
