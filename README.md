@@ -16,7 +16,8 @@ Folder Structure
 
 
 Introduction
-FarmEd is a Flutter-based mobile platform designed to empower farmers and agricultural enthusiasts by providing access to educational content and the latest farming techniques. This project currently focuses on the frontend, providing an intuitive and user-friendly interface for accessing information.
+
+FarmEd is a mobile application developed to support farmers in Rwanda by providing a comprehensive platform for agricultural education and innovation. The app will serve as a resource hub, offering a wide range of features including instructional videos, informative blog posts, interactive photos, and regularly updated newsletters. Through these resources, farmers will gain access to critical knowledge on modern farming techniques, sustainable practices, and real-time agricultural trends.
 
 Features
 - User Authentication
@@ -46,32 +47,26 @@ Clone the Repository:
 
 bash
 
-git clone https://github.com/Bernice-Awinpang-Akudbilla/FarmEd.git  
-cd FarmEd
+    git clone https://github.com/Bernice-Awinpang-Akudbilla/FarmEd.git  
+     cd FarmEd
 Install Dependencies:
 Inside the project directory, run:
 
-bash
-flutter pub get
-Setup
-Configure Firebase (Optional):
-If you plan to integrate Firebase in the future:
+     flutter pub get
 
 Running the Application
 Start an Emulator or Connect a Device:
-
 Use Android Studio to launch an emulator or connect a physical device.
 Run the App:
 
-bash
-Copy code
-flutter run
+    flutter run
 Hot Reload (during development):
 Make changes and save to see updates instantly.
 
 Folder Structure
 Here’s an overview of the core folder structure:
 
+![WhatsApp Image 2024-10-27 at 16 12 02_a7ae43fe](https://github.com/user-attachments/assets/6c2906a3-e982-4f4b-8b34-8821a6353fcb)
 
 
 License
