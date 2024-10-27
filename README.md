@@ -19,26 +19,19 @@ Educational platform for farmers and agricultural enthusiasts<br>
 FarmEd is a mobile application developed to support farmers in Rwanda by providing a comprehensive platform for agricultural education and innovation. The app will serve as a resource hub, offering a wide range of features including instructional videos, informative blog posts, interactive photos, and regularly updated newsletters. Through these resources, farmers will gain access to critical knowledge on modern farming techniques, sustainable practices, and real-time agricultural trends.
 
 <h2>Features</h2>
+
 - User Authentication
-  <img src="https://github.com/user-attachments/assets/ea81f124-0e0a-4bc8-bff8-cefb0d18281d" alt="Description of the image" width="400" style="float:left; margin-right: 10px;"/>
-![signup]()
 
 - Blog Page
-  ![blogs](https://github.com/user-attachments/assets/795d90ee-5b08-43b0-a8fa-9a9d8b847e1c)
+ 
 
 - Search Functionality
-![search](https://github.com/user-attachments/assets/d77b8408-ae94-453e-a264-85633334e9b2)
 
 - Newsletter
-![newsletters](https://github.com/user-attachments/assets/4299b759-2c91-47a4-a725-99fa3d306f33)
 
 - Instructional Videos
-![videos](https://github.com/user-attachments/assets/5df06c32-48d0-4f41-81a7-c57cb8a5c78c)
 
 - User Profile & notification
-![profile](https://github.com/user-attachments/assets/77d0d47c-05eb-4d52-bf92-6553599ffb71)
-
-
 
 <h2>Prerequisites</h2>
 
@@ -50,17 +43,26 @@ Android Studio (for Android emulation)
 Xcode (for iOS emulation, optional if targeting iOS)
 Git: Install Git
 Visual Studio Code (or any preferred code editor)
-Installation
+
+<h2>Installation</h2>
 Clone the Repository:
 
-
-
     git clone https://github.com/Bernice-Awinpang-Akudbilla/FarmEd.git  
-     cd FarmEd
+    cd FarmEd
+    
 Install Dependencies:
 Inside the project directory, run:
+   
+    flutter pub get
 
-     flutter pub get
+Update pubspec.yaml:
+Ensure all required packages are listed. Example:
+
+    dependencies:
+      flutter:
+        sdk: flutter
+      cupertino_icons: ^1.0.2
+      provider: ^6.0.0  # For state management
 
 <h2>Running the Application</h2><br>
 
