@@ -47,7 +47,7 @@ Ensure you have the following tools installed:
 <h2>Installation</h2>
 Clone the Repository:
 
-    git clone https://github.com/Bernice-Awinpang-Akudbilla/FarmEd.git  
+    git clone https://github.com/KennyKvn001/farm-ed_flutter_app 
     cd FarmEd
     
 Install Dependencies:
