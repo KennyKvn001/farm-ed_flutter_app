@@ -37,12 +37,12 @@ FarmEd is a mobile application developed to support farmers in Rwanda by providi
 
 Ensure you have the following tools installed:
 
-Flutter SDK: Install Flutter
-Dart SDK (comes with Flutter)
-Android Studio (for Android emulation)
-Xcode (for iOS emulation, optional if targeting iOS)
-Git: Install Git
-Visual Studio Code (or any preferred code editor)
+- Flutter SDK: Install Flutter
+- Dart SDK (comes with Flutter)
+- Android Studio (for Android emulation)
+- Xcode (for iOS emulation, optional if targeting iOS)
+- Git: Install Git
+- Visual Studio Code (or any preferred code editor)
 
 <h2>Installation</h2>
 Clone the Repository:
