@@ -5,13 +5,13 @@ Educational platform for farmers and agricultural enthusiasts<br>
 
 <h2>Table of Contents:</h2>
 
-<h2>Introduction</h2>
-Features
-Prerequisites
-Installation
-Setup
-Running the Application
-Folder Structure
+- Introduction
+- Features
+- Prerequisites
+- Installation
+- Setup
+- Running the Application
+- Folder Structure
 
 
 <h2>Introduction</h2>
@@ -20,16 +20,23 @@ FarmEd is a mobile application developed to support farmers in Rwanda by providi
 
 <h2>Features</h2>
 - User Authentication
-  
+  <img src="https://github.com/user-attachments/assets/ea81f124-0e0a-4bc8-bff8-cefb0d18281d" alt="Description of the image" width="400" style="float:left; margin-right: 10px;"/>
+![signup]()
+
 - Blog Page
-  
+  ![blogs](https://github.com/user-attachments/assets/795d90ee-5b08-43b0-a8fa-9a9d8b847e1c)
+
 - Search Functionality
+![search](https://github.com/user-attachments/assets/d77b8408-ae94-453e-a264-85633334e9b2)
 
 - Newsletter
+![newsletters](https://github.com/user-attachments/assets/4299b759-2c91-47a4-a725-99fa3d306f33)
 
 - Instructional Videos
+![videos](https://github.com/user-attachments/assets/5df06c32-48d0-4f41-81a7-c57cb8a5c78c)
 
 - User Profile & notification
+![profile](https://github.com/user-attachments/assets/77d0d47c-05eb-4d52-bf92-6553599ffb71)
 
 
 
