@@ -74,6 +74,7 @@ flutter:
     - image/icons/profile.svg
     - image/news.json
     - image/videos.json
+    - image/images/rice-plantsunset.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

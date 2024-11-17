@@ -18,7 +18,9 @@ class Featured extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(8),
                 child: Image.network(
-                  content['Image'] ?? 'https://via.placeholder.com/80',
+                  content['thumbnail'] ??
+                      content['Image'] ??
+                      'https://via.placeholder.com/80',
                   width: 80,
                   height: 80,
                   fit: BoxFit.cover,
@@ -34,14 +36,16 @@ class Featured extends StatelessWidget {
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(
-                      content['Title'] ?? 'No title',
-                      style:
-                          const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      content['Title'] ?? content['title'] ?? 'No title',
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 16),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
                     Text(
-                      content['Description'] ?? 'No Discription',
+                      content['Description'] ??
+                          content['description'] ??
+                          'No Discription',
                       style: TextStyle(
                           fontWeight: FontWeight.normal, fontSize: 16),
                       maxLines: 2,

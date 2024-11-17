@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'package:farm_ed/components/featured.dart';
 import 'package:farm_ed/components/slidecards.dart';
 import 'package:farm_ed/pages/blog_detials.dart';
+import 'package:farm_ed/pages/video_detials.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_ed/components/appbar.dart';
 import 'package:flutter/services.dart';
@@ -25,6 +26,7 @@ class _HomePageState extends State<HomePage> {
 
   List<dynamic> _blogs = [];
   List<dynamic> _news = [];
+  List<Map<String, dynamic>> videos = [];
   bool _isLoading = true;
 
   @override
@@ -35,6 +37,9 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> readJson() async {
     try {
+      final String videosJson =
+          await rootBundle.loadString('image/videos.json');
+      final videosData = json.decode(videosJson);
       final String blogs = await rootBundle.loadString('image/blog.json');
       final blogData = await json.decode(blogs);
       final String news = await rootBundle.loadString('image/news.json');
@@ -42,12 +47,15 @@ class _HomePageState extends State<HomePage> {
       setState(() {
         _blogs = blogData["blogs"] ?? [];
         _news = newsData["news"] ?? [];
+        videos = List<Map<String, dynamic>>.from(videosData['videos'] ?? []);
         _isLoading = false;
       });
     } catch (e) {
       print('Error loading blogs: $e');
       setState(() {
         _blogs = [];
+        _news = [];
+        videos = [];
         _isLoading = false;
       });
     }
@@ -167,7 +175,37 @@ class _HomePageState extends State<HomePage> {
                             contentType: "News",
                           ),
               ),
-            )
+            ),
+            InkWell(
+              onTap: () {
+                if (videos.isNotEmpty) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => VideoDetails(
+                        title: videos[0]
+                            ['title'], // Access the first video's title
+                        thumbnail: videos[0]
+                            ['thumbnail'], // Access the first video's thumbnail
+                        videoUrl: videos[0]
+                            ['videoUrl'], // Access the first video's URL
+                      ),
+                    ),
+                  );
+                }
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: _isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : videos.isEmpty
+                        ? const Center(child: Text('No videos available'))
+                        : Featured(
+                            content: videos[0], // Pass the first video
+                            contentType: "Videos",
+                          ),
+              ),
+            ),
           ]),
         ),
       ),

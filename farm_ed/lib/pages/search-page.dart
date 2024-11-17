@@ -1,4 +1,8 @@
+import 'package:farm_ed/pages/blog_detials.dart';
+import 'package:farm_ed/pages/video_detials.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -9,161 +13,293 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   final TextEditingController _searchController = TextEditingController();
-  List<Map<String, dynamic>> videos = [
-    {
-      "title": "Video 1",
-      "description": "Description for video 1",
-      "thumbnail": "image/images/FarmWorker.png", // Ensure this asset exists
-    },
-    {
-      "title": "Video 2",
-      "description": "Description for video 2",
-      "thumbnail":
-          "image/images/HarvestingField.png", // Ensure this asset exists
-    },
-    {
-      "title": "Video 3",
-      "description": "Description for video 3",
-      "thumbnail":
-          "image/images/rice-plantsunset.png", // Ensure this asset exists
-    },
-  ];
-  List<Map<String, dynamic>> news = [
-    {"title": "News 1", "description": "Description for news 1"},
-    {"title": "News 2", "description": "Description for news 2"},
-  ];
-  List<Map<String, dynamic>> blogs = [
-    {"title": "Blog 1", "description": "Description for blog 1"},
-    {"title": "Blog 2", "description": "Description for blog 2"},
-  ];
+  List<Map<String, dynamic>> videos = [];
+  List<Map<String, dynamic>> news = [];
+  List<Map<String, dynamic>> blogs = [];
+
+  List<Map<String, dynamic>> filteredVideos = [];
+  List<Map<String, dynamic>> filteredNews = [];
+  List<Map<String, dynamic>> filteredBlogs = [];
+
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    loadAllContent();
+  }
+
+  Future<void> loadAllContent() async {
+    try {
+      final String videosJson =
+          await rootBundle.loadString('image/videos.json');
+      final String newsJson = await rootBundle.loadString('image/news.json');
+      final String blogsJson = await rootBundle.loadString('image/blog.json');
+
+      final videosData = json.decode(videosJson);
+      final newsData = json.decode(newsJson);
+      final blogsData = json.decode(blogsJson);
+
+      setState(() {
+        videos = List<Map<String, dynamic>>.from(videosData['videos']);
+        news = List<Map<String, dynamic>>.from(newsData['news']);
+        blogs = List<Map<String, dynamic>>.from(blogsData['blogs']);
+
+        filteredVideos = videos;
+        filteredNews = news;
+        filteredBlogs = blogs;
+
+        _isLoading = false;
+      });
+    } catch (e) {
+      print('Error loading content: $e');
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  void filterContent(String query) {
+    setState(() {
+      if (query.isEmpty) {
+        filteredVideos = videos;
+        filteredNews = news;
+        filteredBlogs = blogs;
+      } else {
+        filteredVideos = videos
+            .where((video) =>
+                video['title']
+                    .toString()
+                    .toLowerCase()
+                    .contains(query.toLowerCase()) ||
+                (video['description']?.toString().toLowerCase() ?? '')
+                    .contains(query.toLowerCase()))
+            .toList();
+
+        filteredNews = news
+            .where((newsItem) =>
+                newsItem['Title']
+                    .toString()
+                    .toLowerCase()
+                    .contains(query.toLowerCase()) ||
+                (newsItem['Description']?.toString().toLowerCase() ?? '')
+                    .contains(query.toLowerCase()))
+            .toList();
+
+        filteredBlogs = blogs
+            .where((blog) =>
+                blog['Title']
+                    .toString()
+                    .toLowerCase()
+                    .contains(query.toLowerCase()) ||
+                (blog['Description']?.toString().toLowerCase() ?? '')
+                    .contains(query.toLowerCase()))
+            .toList();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // Search Container
-              Padding(
-                padding: const EdgeInsets.only(top: 25.0),
-                child: Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-                  decoration: BoxDecoration(
-                      color: Colors.green[700],
-                      borderRadius: BorderRadius.circular(30)),
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          controller: _searchController,
-                          decoration: InputDecoration(
-                            hintText: 'Search...',
-                            hintStyle: TextStyle(color: Colors.white),
-                            border: InputBorder.none,
-                          ),
-                          style: TextStyle(color: Colors.white),
-                          onChanged: (value) {
-                            // Implement your search logic here
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 25.0),
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 8),
+                        decoration: BoxDecoration(
+                          color: Colors.green[700],
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: TextField(
+                                controller: _searchController,
+                                decoration: const InputDecoration(
+                                  hintText: 'Search...',
+                                  hintStyle: TextStyle(color: Colors.white),
+                                  border: InputBorder.none,
+                                ),
+                                style: const TextStyle(color: Colors.white),
+                                onChanged: filterContent,
+                              ),
+                            ),
+                            IconButton(
+                              icon:
+                                  const Icon(Icons.search, color: Colors.white),
+                              onPressed: () =>
+                                  filterContent(_searchController.text),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    // Videos Section
+                    if (filteredVideos.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          "${filteredVideos.length} Videos",
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 170,
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: filteredVideos.length,
+                          itemBuilder: (context, index) {
+                            final video = filteredVideos[index];
+                            return Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Column(
+                                children: [
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => VideoDetails(
+                                            title: video['title'],
+                                            thumbnail: video['thumbnail'],
+                                            videoUrl: video['videoUrl'],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                    child: Container(
+                                      width: 220,
+                                      height: 120,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          image: AssetImage(video['thumbnail']),
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 4),
+                                  Text(
+                                    video['title'],
+                                    style: const TextStyle(fontSize: 14),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ],
+                              ),
+                            );
                           },
                         ),
                       ),
-                      IconButton(
-                        icon: Icon(Icons.search, color: Colors.white),
-                        onPressed: () {
-                          // Trigger search action
+                    ],
+
+                    // News Section
+                    if (filteredNews.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          "${filteredNews.length} News",
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: filteredNews.length,
+                        itemBuilder: (context, index) {
+                          final newsItem = filteredNews[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailsPage(
+                                    content: newsItem,
+                                    contentType: 'News',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: ListTile(
+                              leading: const Icon(Icons.article),
+                              title: Text(
+                                newsItem['Title'] ?? '',
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500),
+                                maxLines: 1,
+                              ),
+                              subtitle: Text(
+                                newsItem['Description'] ?? '',
+                                maxLines: 2,
+                              ),
+                            ),
+                          );
                         },
                       ),
                     ],
-                  ),
-                ),
-              ),
 
-              // Videos Section
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "${videos.length} Videos",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Container(
-                height: 170, // Adjust the height based on your design
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: videos.length,
-                  itemBuilder: (context, index) {
-                    final video = videos[index];
-                    return Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            width: 150,
-                            height: 120,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                image: AssetImage(video['thumbnail']),
-                                fit: BoxFit.cover,
+                    // Blogs Section
+                    if (filteredBlogs.isNotEmpty) ...[
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          "${filteredBlogs.length} Blogs",
+                          style: const TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: filteredBlogs.length,
+                        itemBuilder: (context, index) {
+                          final blog = filteredBlogs[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailsPage(
+                                    content: blog,
+                                    contentType: 'Blog',
+                                  ),
+                                ),
+                              );
+                            },
+                            child: ListTile(
+                              leading: const Icon(Icons.book),
+                              title: Text(
+                                blog['Title'] ?? '',
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.w500),
+                                maxLines: 1,
+                              ),
+                              subtitle: Text(
+                                blog['Description'] ?? '',
+                                maxLines: 2,
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            video['title'],
-                            style: TextStyle(fontSize: 14),
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ],
+                          );
+                        },
                       ),
-                    );
-                  },
+                    ],
+                  ],
                 ),
               ),
-
-              // News Section
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "${news.length} News",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Column(
-                children: news.map((newsItem) {
-                  return ListTile(
-                    leading: Icon(Icons.article),
-                    title: Text(newsItem['title']),
-                    subtitle: Text(newsItem['description']),
-                  );
-                }).toList(),
-              ),
-
-              // Blogs Section
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  "${blogs.length} Blogs",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ),
-              Column(
-                children: blogs.map((blog) {
-                  return ListTile(
-                    leading: Icon(Icons.book),
-                    title: Text(blog['title']),
-                    subtitle: Text(blog['description']),
-                  );
-                }).toList(),
-              ),
-            ],
-          ),
-        ),
-      ),
+            ),
     );
   }
 }
