@@ -1,112 +1,39 @@
+// video_details.dart
 import 'package:farm_ed/components/video.dart';
+import 'package:farm_ed/components/video_state.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
-import 'package:flick_video_player/flick_video_player.dart';
+import 'package:provider/provider.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 
-class VideoDetails extends StatefulWidget {
+class VideoDetails extends StatelessWidget {
   final String title;
   final String thumbnail;
   final String videoUrl;
 
   const VideoDetails({
-    super.key,
+    Key? key,
     required this.title,
     required this.thumbnail,
     required this.videoUrl,
-  });
+  }) : super(key: key);
 
   @override
-  State<VideoDetails> createState() => _VideoDetailsState();
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => VideoState()..initializePlayer(videoUrl),
+      child: VideoDetailsView(title: title),
+    );
+  }
 }
 
-class _VideoDetailsState extends State<VideoDetails> {
-  YoutubePlayerController? _youtubeController;
-  FlickManager? _flickManager;
-  VideoPlayerController? videoPlayerController;
-  bool _isInitialized = false;
-  bool _hasError = false;
-  String _errorMessage = '';
-  bool _isYoutubeVideo = false;
+class VideoDetailsView extends StatelessWidget {
+  final String title;
 
-  @override
-  void initState() {
-    super.initState();
-    _initializePlayer();
-  }
+  const VideoDetailsView({Key? key, required this.title}) : super(key: key);
 
-  /// Extracts the YouTube video ID if the URL is valid.
-  String? _getYoutubeId(String url) {
-    try {
-      // Handle full URLs and video IDs
-      if (url.contains('youtu.be/') || url.contains('youtube.com/')) {
-        return YoutubePlayer.convertUrlToId(url);
-      }
-      // Fallback: Check if it's a possible video ID
-      if (url.length == 11) {
-        return url;
-      }
-    } catch (e) {
-      print('Error extracting YouTube ID: $e');
-    }
-    return null;
-  }
-
-  /// Initializes the video player (YouTube or regular video).
-  Future<void> _initializePlayer() async {
-    try {
-      final String? youtubeId = _getYoutubeId(widget.videoUrl);
-
-      if (youtubeId != null) {
-        // Initialize YouTube player
-        _youtubeController = YoutubePlayerController(
-          initialVideoId: youtubeId,
-          flags: const YoutubePlayerFlags(
-            autoPlay: false,
-            mute: false,
-            controlsVisibleAtStart: true,
-          ),
-        );
-        _isYoutubeVideo = true;
-      } else {
-        // Initialize non-YouTube video player
-        videoPlayerController = VideoPlayerController.network(widget.videoUrl);
-        await videoPlayerController!.initialize();
-        _flickManager = FlickManager(
-          videoPlayerController: videoPlayerController!,
-          autoPlay: false,
-        );
-      }
-
-      if (mounted) {
-        setState(() {
-          _isInitialized = true;
-          _hasError = false;
-        });
-      }
-    } catch (e) {
-      print('Error initializing video player: $e');
-      if (mounted) {
-        setState(() {
-          _hasError = true;
-          _errorMessage = e.toString();
-        });
-      }
-    }
-  }
-
-  /// Disposes of all controllers to free resources.
-  @override
-  void dispose() {
-    _youtubeController?.dispose();
-    _flickManager?.dispose();
-    videoPlayerController?.dispose();
-    super.dispose();
-  }
-
-  /// Builds the appropriate video player widget based on the video type.
-  Widget _buildVideoPlayer() {
-    if (_hasError) {
+  Widget _buildVideoPlayer(BuildContext context, VideoState videoState) {
+    if (videoState.hasError) {
       return Container(
         height: 200,
         color: Colors.black87,
@@ -114,21 +41,17 @@ class _VideoDetailsState extends State<VideoDetails> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Icon(
-                Icons.error_outline,
-                color: Colors.white,
-                size: 40,
-              ),
+              const Icon(Icons.error_outline, color: Colors.white, size: 40),
               const SizedBox(height: 16),
               const Text(
                 'Failed to load video',
                 style: TextStyle(color: Colors.white),
               ),
-              if (_errorMessage.isNotEmpty)
+              if (videoState.errorMessage.isNotEmpty)
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    _errorMessage,
+                    videoState.errorMessage,
                     style: const TextStyle(color: Colors.white70, fontSize: 12),
                     textAlign: TextAlign.center,
                   ),
@@ -139,21 +62,19 @@ class _VideoDetailsState extends State<VideoDetails> {
       );
     }
 
-    if (!_isInitialized) {
+    if (!videoState.isInitialized) {
       return Container(
         height: 200,
         color: Colors.black87,
         child: const Center(
-          child: CircularProgressIndicator(
-            color: Colors.white,
-          ),
+          child: CircularProgressIndicator(color: Colors.white),
         ),
       );
     }
 
-    if (_isYoutubeVideo && _youtubeController != null) {
+    if (videoState.isYoutubeVideo && videoState.youtubeController != null) {
       return YoutubePlayer(
-        controller: _youtubeController!,
+        controller: videoState.youtubeController!,
         showVideoProgressIndicator: true,
         progressColors: const ProgressBarColors(
           playedColor: Colors.red,
@@ -162,11 +83,11 @@ class _VideoDetailsState extends State<VideoDetails> {
       );
     }
 
-    if (_flickManager != null) {
+    if (videoState.flickManager != null) {
       return AspectRatio(
-        aspectRatio: videoPlayerController!.value.aspectRatio,
+        aspectRatio: 16 / 9,
         child: FlickVideoPlayer(
-          flickManager: _flickManager!,
+          flickManager: videoState.flickManager!,
           flickVideoWithControls: const FlickVideoWithControls(
             controls: FlickPortraitControls(),
           ),
@@ -177,7 +98,7 @@ class _VideoDetailsState extends State<VideoDetails> {
       );
     }
 
-    return Container(); // Fallback for unexpected cases
+    return Container();
   }
 
   @override
@@ -229,11 +150,14 @@ class _VideoDetailsState extends State<VideoDetails> {
                 ],
               ),
             ),
-            _buildVideoPlayer(),
+            Consumer<VideoState>(
+              builder: (context, videoState, child) =>
+                  _buildVideoPlayer(context, videoState),
+            ),
             Padding(
               padding: const EdgeInsets.all(25),
               child: Text(
-                widget.title,
+                title,
                 style: const TextStyle(fontSize: 24, color: Colors.black),
               ),
             ),
