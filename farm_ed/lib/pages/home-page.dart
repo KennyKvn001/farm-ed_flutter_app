@@ -67,61 +67,57 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(children: [
-            // Appbar
-            const Appbar(),
-            const SizedBox(height: 10.0),
+          child: Column(
+            children: [
+              // Appbar
+              const Appbar(),
+              const SizedBox(height: 10.0),
 
-            // Cards
-            SizedBox(
-              height: 320,
-              child: PageView(
-                scrollDirection: Axis.horizontal,
-                controller: _controller,
-                children: const [
-                  SlideCard(
-                    type: 'Blog',
-                    description: 'Advanced Weather Prediction',
-                    image: 'image/images/rice-plantsunset.png',
-                  ),
-                  SlideCard(
-                    type: 'News',
-                    description: 'New Fertilizers coming this year',
-                    image: 'image/images/Tructor.png',
-                  ),
-                  SlideCard(
-                    type: 'Videos',
-                    description: 'New video, how to use modern irrigation ',
-                    image: 'image/images/FarmWorker.png',
-                  ),
-                ],
+              // Cards
+              SizedBox(
+                height: 320,
+                child: PageView(
+                  scrollDirection: Axis.horizontal,
+                  controller: _controller,
+                  children: const [
+                    SlideCard(
+                      type: 'Blog',
+                      description: 'Advanced Weather Prediction',
+                      image: 'image/images/rice-plantsunset.png',
+                    ),
+                    SlideCard(
+                      type: 'News',
+                      description: 'New Fertilizers coming this year',
+                      image: 'image/images/Tructor.png',
+                    ),
+                    SlideCard(
+                      type: 'Videos',
+                      description: 'New video, how to use modern irrigation ',
+                      image: 'image/images/FarmWorker.png',
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            // page controller
-            SmoothPageIndicator(
-              controller: _controller,
-              count: 3,
-              effect: const ExpandingDotsEffect(activeDotColor: Colors.green),
-            ),
+              const SizedBox(height: 10),
 
-            SizedBox(
-              height: 25,
-            ),
-            Container(
-              height: 50,
-              child: Padding(
+              // Page indicator
+              SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                effect: const ExpandingDotsEffect(activeDotColor: Colors.green),
+              ),
+
+              const SizedBox(height: 25),
+
+              // Featured header
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       'Featured',
                       style: TextStyle(fontSize: 20, color: Colors.grey),
-                      textAlign: TextAlign.start,
                     ),
                     Icon(
                       Icons.arrow_circle_right_outlined,
@@ -130,83 +126,99 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-            ),
+              const SizedBox(height: 10),
 
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        DetailsPage(content: _blogs[3], contentType: 'Blog'),
-                  ),
-                );
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: _isLoading
-                    ? Center(child: const CircularProgressIndicator())
-                    : _blogs.isEmpty
-                        ? const Center(child: Text('No blogs available'))
-                        : Featured(
-                            content: _blogs[3],
-                            contentType: "Blog",
+              // Featured Content
+              if (_isLoading) ...[
+                const Center(child: CircularProgressIndicator()),
+              ] else ...[
+                // Featured Blog
+                if (_blogs.isNotEmpty && _blogs.length > 3)
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                content: _blogs[3], contentType: 'Blog'),
                           ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        DetailsPage(content: _news[3], contentType: 'News'),
-                  ),
-                );
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: _isLoading
-                    ? Center(child: const CircularProgressIndicator())
-                    : _news.isEmpty
-                        ? const Center(child: Text('No news available'))
-                        : Featured(
-                            content: _news[3],
-                            contentType: "News",
-                          ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                if (videos.isNotEmpty) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => VideoDetails(
-                        title: videos[0]
-                            ['title'], // Access the first video's title
-                        thumbnail: videos[0]
-                            ['thumbnail'], // Access the first video's thumbnail
-                        videoUrl: videos[0]
-                            ['videoUrl'], // Access the first video's URL
+                        );
+                      },
+                      child: Featured(
+                        content: _blogs[3],
+                        contentType: "Blog",
                       ),
                     ),
-                  );
-                }
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: _isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : videos.isEmpty
-                        ? const Center(child: Text('No videos available'))
-                        : Featured(
-                            content: videos[0], // Pass the first video
-                            contentType: "Videos",
+                  )
+                else
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(child: Text('No blogs available')),
+                  ),
+
+                // Featured News
+                if (_news.isNotEmpty && _news.length > 3)
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                content: _news[3], contentType: 'News'),
                           ),
-              ),
-            ),
-          ]),
+                        );
+                      },
+                      child: Featured(
+                        content: _news[3],
+                        contentType: "News",
+                      ),
+                    ),
+                  )
+                else
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(child: Text('No news available')),
+                  ),
+
+                // Featured Videos
+                if (videos.isNotEmpty)
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VideoDetails(
+                              title: videos[0]['title'],
+                              thumbnail: videos[0]['thumbnail'],
+                              videoUrl: videos[0]['videoUrl'],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Featured(
+                        content: videos[0],
+                        contentType: "Videos",
+                      ),
+                    ),
+                  )
+                else
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(child: Text('No videos available')),
+                  ),
+              ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
