@@ -10,25 +10,44 @@ class NotificationsPage extends StatelessWidget {
         children: [
           // Custom green background with specific height and width
           Container(
-            width: 393, // Specific width
-            height: 217, // Specific height
-            color: Colors.green, // Green background color
+            width: double.infinity, // Specific width
+            height: 250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20)),
+              color: const Color.fromARGB(255, 3, 139, 28),
+            ),
+
             child: Stack(
               children: [
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: IconButton(
-                    icon: const Icon(Icons.arrow_back, color: Colors.white),
-                    onPressed: () {
-                      Navigator.pop(context); // Go back
-                    },
+                SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    child: Container(
+                      margin: const EdgeInsets.only(left: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.arrow_back_ios_new_rounded,
+                          color: Colors.green,
+                        ),
+                        onPressed: () => Navigator.pop(context),
+                      ),
+                    ),
                   ),
                 ),
                 // FarmEd icon in the center
-                Center(
-                  child: Image.asset(
-                    'image/logo(1).png', // Replace with your logo path
-                    height: 60, // Adjust size as needed
+                Padding(
+                  padding: const EdgeInsets.only(top: 80.0),
+                  child: Center(
+                    child: Image.asset(
+                      'image/logo(1).png', // Replace with your logo path
+                      height: 60, // Adjust size as needed
+                    ),
                   ),
                 ),
               ],
@@ -45,12 +64,12 @@ class NotificationsPage extends StatelessWidget {
                   children: [
                     Text(
                       'Notifications & alerts',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.notifications, size: 28),
                   ],
                 ),
-                SizedBox(height: 20),
               ],
             ),
           ),
@@ -60,7 +79,8 @@ class NotificationsPage extends StatelessWidget {
               itemCount: 5, // Number of notifications
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                   child: Container(
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(

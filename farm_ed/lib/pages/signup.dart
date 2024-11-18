@@ -1,3 +1,4 @@
+import 'package:farm_ed/pages/login.dart';
 import 'package:flutter/material.dart';
 
 class SignupPage extends StatelessWidget {
@@ -8,16 +9,18 @@ class SignupPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            Padding(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const SizedBox(height: 80),
-                    Image.asset('image/logo.png', height: 100), // Add your logo here
-                    const SizedBox(height: 20),
+                    Image.asset('image/logo.png', height: 100),
+                    // Add your logo here
+                    const SizedBox(height: 18),
                     const Text(
                       "Sign Up",
                       style: TextStyle(
@@ -44,7 +47,10 @@ class SignupPage extends StatelessWidget {
                       onPressed: () {},
                       child: const Text(
                         "Sign up",
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color:Colors.white),
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -58,7 +64,11 @@ class SignupPage extends StatelessWidget {
                         const Text("Already have an account? "),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/login');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()),
+                            );
                           },
                           child: const Text(
                             "Login",
@@ -74,13 +84,22 @@ class SignupPage extends StatelessWidget {
                   ],
                 ),
               ),
-        
-            Row(
-              //crossAxisAlignment: CrossAxisAlignment.end,
-              children: [Image.asset("image/images/FarmEd Vector.png",height:130,),
-           Spacer(),
-           Image.asset("image/images/FarmEd Group 2.png", height:130,)],)
-          ],
+              Row(
+                //crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Image.asset(
+                    "image/images/FarmEd Vector.png",
+                    height: 130,
+                  ),
+                  Spacer(),
+                  Image.asset(
+                    "image/images/FarmEd Group 2.png",
+                    height: 130,
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -96,14 +115,15 @@ class SignupPage extends StatelessWidget {
         ),
         filled: true,
         fillColor: Colors.grey[200],
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       ),
     );
   }
 
   Widget _buildGoogleButton() {
     return Container(
-      width:200,
+      width: 200,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -115,9 +135,8 @@ class SignupPage extends StatelessWidget {
             offset: const Offset(0, 5), // X and Y offset of the shadow
           ),
         ],
-        borderRadius: BorderRadius.circular(
-            16),
-          // Same border radius as the button
+        borderRadius: BorderRadius.circular(16),
+        // Same border radius as the button
       ),
       child: OutlinedButton.icon(
         onPressed: () {},

@@ -1,5 +1,5 @@
 import 'package:farm_ed/components/appbar.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:farm_ed/components/news.dart';
 import 'package:flutter/material.dart';
 
 class ArticlePage extends StatelessWidget {
@@ -12,7 +12,21 @@ class ArticlePage extends StatelessWidget {
               child: Column(
         children: [
           const Appbar(),
-          Center(child: Text('Article Page Content')),
+          Container(
+            decoration: BoxDecoration(color: Colors.green[700]),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10.0),
+              child: Center(
+                  child: Text(
+                'Newsletters',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold),
+              )),
+            ),
+          ),
+          SizedBox(height: 800, child: News()),
         ],
       ))),
     );

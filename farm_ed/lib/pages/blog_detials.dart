@@ -1,9 +1,14 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 
-class BlogDetials extends StatelessWidget {
-  final Map<String, dynamic> blog; // expect a single blog
+class DetailsPage extends StatelessWidget {
+  final Map<String, dynamic> content; 
+  final String contentType; 
 
-  const BlogDetials({Key? key, required this.blog}) : super(key: key);
+  const DetailsPage({
+    Key? key,
+    required this.content,
+    required this.contentType, 
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,31 +20,31 @@ class BlogDetials extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(40),
                       bottomRight: Radius.circular(40)),
                   child: Image.network(
-                    blog['Image'] ?? 'https://via.placeholder.com/80',
+                    content['Image'] ?? 'https://via.placeholder.com/80',
                     width: double.infinity,
                     height: 350,
                     fit: BoxFit.cover,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
-                    'Blog',
-                    style: TextStyle(color: Colors.grey, fontSize: 20),
+                    contentType,
+                    style: const TextStyle(color: Colors.grey, fontSize: 20),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
-                    blog['Title'] ?? 'No Title',
-                    style: TextStyle(
+                    content['Title'] ?? 'No Title',
+                    style: const TextStyle(
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
@@ -48,12 +53,12 @@ class BlogDetials extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Text(
-                    blog['Author1'] ?? 'No Dates',
-                    style: TextStyle(fontSize: 14, color: Colors.grey),
+                    content['Author1'] ?? 'No Dates',
+                    style: const TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                const Padding(
+                  padding: EdgeInsets.all(16.0),
                   child: Divider(
                     color: Colors.grey,
                   ),
@@ -61,31 +66,31 @@ class BlogDetials extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    blog['Description'] ?? 'No Description',
+                    content['Description'] ?? 'No Description',
                     style:
-                        TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
+                        const TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
                     textAlign: TextAlign.justify,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 )
               ],
             ),
           ),
         ),
-
-        //back button
+        // Back button
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Container(
               margin: const EdgeInsets.only(left: 16),
               decoration: BoxDecoration(
-                  color: Colors.green[700],
-                  borderRadius: BorderRadius.circular(30)),
+                color: Colors.green[700],
+                borderRadius: BorderRadius.circular(30),
+              ),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new_rounded,
                   color: Colors.white,
                 ),

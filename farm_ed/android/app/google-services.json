@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "789631968041",
+    "project_id": "farmed-flutter-app",
+    "storage_bucket": "farmed-flutter-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:789631968041:android:c1598d89a3d005a7194d38",
+        "android_client_info": {
+          "package_name": "com.example.farm_ed"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIOiv8BKNlXuXNQdE9XgXv3e1ov3E3OvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

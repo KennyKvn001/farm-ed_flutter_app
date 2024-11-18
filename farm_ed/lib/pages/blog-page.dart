@@ -20,8 +20,8 @@ class BlogPage extends StatelessWidget {
           const Appbar(),
           Container(
             decoration: BoxDecoration(color: Colors.green[700]),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
               child: Center(
                   child: Text(
                 'Blogs',
@@ -32,7 +32,7 @@ class BlogPage extends StatelessWidget {
               )),
             ),
           ),
-          SizedBox(height: 800, child: MyBlogs()),
+          const SizedBox(height: 800, child: MyBlogs()),
         ],
       ))),
     );

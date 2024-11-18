@@ -7,6 +7,7 @@ import 'dart:convert';
 import 'package:farm_ed/components/featured.dart';
 import 'package:farm_ed/components/slidecards.dart';
 import 'package:farm_ed/pages/blog_detials.dart';
+import 'package:farm_ed/pages/video_detials.dart';
 import 'package:flutter/material.dart';
 import 'package:farm_ed/components/appbar.dart';
 import 'package:flutter/services.dart';
@@ -24,6 +25,8 @@ class _HomePageState extends State<HomePage> {
   final _controller = PageController();
 
   List<dynamic> _blogs = [];
+  List<dynamic> _news = [];
+  List<Map<String, dynamic>> videos = [];
   bool _isLoading = true;
 
   @override
@@ -34,16 +37,25 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> readJson() async {
     try {
-      final String response = await rootBundle.loadString('image/blog.json');
-      final data = await json.decode(response);
+      final String videosJson =
+          await rootBundle.loadString('image/videos.json');
+      final videosData = json.decode(videosJson);
+      final String blogs = await rootBundle.loadString('image/blog.json');
+      final blogData = await json.decode(blogs);
+      final String news = await rootBundle.loadString('image/news.json');
+      final newsData = await json.decode(news);
       setState(() {
-        _blogs = data["blogs"] ?? [];
+        _blogs = blogData["blogs"] ?? [];
+        _news = newsData["news"] ?? [];
+        videos = List<Map<String, dynamic>>.from(videosData['videos'] ?? []);
         _isLoading = false;
       });
     } catch (e) {
       print('Error loading blogs: $e');
       setState(() {
         _blogs = [];
+        _news = [];
+        videos = [];
         _isLoading = false;
       });
     }
@@ -55,61 +67,57 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(children: [
-            // Appbar
-            const Appbar(),
-            const SizedBox(height: 10.0),
+          child: Column(
+            children: [
+              // Appbar
+              const Appbar(),
+              const SizedBox(height: 10.0),
 
-            // Cards
-            SizedBox(
-              height: 320,
-              child: PageView(
-                scrollDirection: Axis.horizontal,
-                controller: _controller,
-                children: const [
-                  SlideCard(
-                    type: 'Blog',
-                    description: 'Advanced Weather Prediction',
-                    image: 'image/images/rice-plantsunset.png',
-                  ),
-                  SlideCard(
-                    type: 'News',
-                    description: 'New Fertilizers coming this year',
-                    image: 'image/images/Tructor.png',
-                  ),
-                  SlideCard(
-                    type: 'Videos',
-                    description: 'New video, how to use modern irrigation ',
-                    image: 'image/images/FarmWorker.png',
-                  ),
-                ],
+              // Cards
+              SizedBox(
+                height: 320,
+                child: PageView(
+                  scrollDirection: Axis.horizontal,
+                  controller: _controller,
+                  children: const [
+                    SlideCard(
+                      type: 'Blog',
+                      description: 'Advanced Weather Prediction',
+                      image: 'image/images/rice-plantsunset.png',
+                    ),
+                    SlideCard(
+                      type: 'News',
+                      description: 'New Fertilizers coming this year',
+                      image: 'image/images/Tructor.png',
+                    ),
+                    SlideCard(
+                      type: 'Videos',
+                      description: 'New video, how to use modern irrigation ',
+                      image: 'image/images/FarmWorker.png',
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            // page controller
-            SmoothPageIndicator(
-              controller: _controller,
-              count: 3,
-              effect: const ExpandingDotsEffect(activeDotColor: Colors.green),
-            ),
+              const SizedBox(height: 10),
 
-            SizedBox(
-              height: 25,
-            ),
-            Container(
-              height: 50,
-              child: Padding(
+              // Page indicator
+              SmoothPageIndicator(
+                controller: _controller,
+                count: 3,
+                effect: const ExpandingDotsEffect(activeDotColor: Colors.green),
+              ),
+
+              const SizedBox(height: 25),
+
+              // Featured header
+              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       'Featured',
                       style: TextStyle(fontSize: 20, color: Colors.grey),
-                      textAlign: TextAlign.start,
                     ),
                     Icon(
                       Icons.arrow_circle_right_outlined,
@@ -118,27 +126,99 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-            ),
+              const SizedBox(height: 10),
 
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => BlogDetials(blog: _blogs[3]),
+              // Featured Content
+              if (_isLoading) ...[
+                const Center(child: CircularProgressIndicator()),
+              ] else ...[
+                // Featured Blog
+                if (_blogs.isNotEmpty && _blogs.length > 3)
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                content: _blogs[3], contentType: 'Blog'),
+                          ),
+                        );
+                      },
+                      child: Featured(
+                        content: _blogs[3],
+                        contentType: "Blog",
+                      ),
+                    ),
+                  )
+                else
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(child: Text('No blogs available')),
                   ),
-                );
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: _isLoading
-                    ? Center(child: CircularProgressIndicator())
-                    : _blogs.isEmpty
-                        ? Center(child: Text('No blogs available'))
-                        : Featured(blog: _blogs[3]),
-              ),
-            )
-          ]),
+
+                // Featured News
+                if (_news.isNotEmpty && _news.length > 3)
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailsPage(
+                                content: _news[3], contentType: 'News'),
+                          ),
+                        );
+                      },
+                      child: Featured(
+                        content: _news[3],
+                        contentType: "News",
+                      ),
+                    ),
+                  )
+                else
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(child: Text('No news available')),
+                  ),
+
+                // Featured Videos
+                if (videos.isNotEmpty)
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => VideoDetails(
+                              title: videos[0]['title'],
+                              thumbnail: videos[0]['thumbnail'],
+                              videoUrl: videos[0]['videoUrl'],
+                            ),
+                          ),
+                        );
+                      },
+                      child: Featured(
+                        content: videos[0],
+                        contentType: "Videos",
+                      ),
+                    ),
+                  )
+                else
+                  const Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Center(child: Text('No videos available')),
+                  ),
+              ],
+              const SizedBox(height: 20),
+            ],
+          ),
         ),
       ),
     );
