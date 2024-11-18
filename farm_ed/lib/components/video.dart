@@ -1,5 +1,6 @@
 import 'package:farm_ed/pages/video_detials.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 class MyVideos extends StatefulWidget {
   const MyVideos({super.key});
@@ -9,22 +10,23 @@ class MyVideos extends StatefulWidget {
 }
 
 class _MyVideosState extends State<MyVideos> {
-  List<Map<String, dynamic>> videos = [
-    {
-      "title": "The IPO parade continues as Wish files",
-      "thumbnail":
-          "image/images/rice-plantsunset.png", // Ensure this asset exists
-    },
-    {
-      "title": "Insurtech startup PasarPolis gets \$54",
-      "thumbnail":
-          "image/images/HarvestingField.png", // Ensure this asset exists
-    },
-    {
-      "title": "The IPO parade continues as Wish files",
-      "thumbnail": "image/images/FarmWorker.png", // Ensure this asset exists
-    },
-  ];
+  late List<Map<String, dynamic>> videos;
+
+  @override
+  void initState() {
+    super.initState();
+    loadVideos();
+  }
+
+  Future<void> loadVideos() async {
+    // Load the JSON file from your assets
+    final String jsonString =
+        await DefaultAssetBundle.of(context).loadString('image/videos.json');
+    final data = json.decode(jsonString);
+    setState(() {
+      videos = List<Map<String, dynamic>>.from(data['videos']);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +36,13 @@ class _MyVideosState extends State<MyVideos> {
         children: videos.map((video) {
           return GestureDetector(
             onTap: () {
-              // Navigate to VideoDetails screen with video data
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => VideoDetials(
+                  builder: (context) => VideoDetails(
                     title: video['title'],
                     thumbnail: video['thumbnail'],
+                    videoUrl: video['videoUrl'],
                   ),
                 ),
               );
@@ -50,7 +52,7 @@ class _MyVideosState extends State<MyVideos> {
               child: Stack(
                 children: [
                   Container(
-                    height: 200,
+                    height: 210,
                     decoration: BoxDecoration(
                       color: Colors.grey[400],
                       borderRadius: BorderRadius.circular(15),
@@ -64,6 +66,21 @@ class _MyVideosState extends State<MyVideos> {
                       image: DecorationImage(
                         image: AssetImage(video['thumbnail']),
                         fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Colors.transparent,
+                            Colors.black.withOpacity(0.3),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -87,6 +104,13 @@ class _MyVideosState extends State<MyVideos> {
                           ),
                         ),
                         const SizedBox(height: 4),
+                        Text(
+                          video['duration'],
+                          style: const TextStyle(
+                            color: Colors.white70,
+                            fontSize: 14,
+                          ),
+                        ),
                       ],
                     ),
                   ),

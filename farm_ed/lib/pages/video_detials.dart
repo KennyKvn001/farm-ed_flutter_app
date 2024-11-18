@@ -1,10 +1,105 @@
+// video_details.dart
 import 'package:farm_ed/components/video.dart';
+import 'package:farm_ed/components/video_state.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:flick_video_player/flick_video_player.dart';
 
-class VideoDetials extends StatelessWidget {
+class VideoDetails extends StatelessWidget {
   final String title;
   final String thumbnail;
-  const VideoDetials({super.key, required this.title, required this.thumbnail});
+  final String videoUrl;
+
+  const VideoDetails({
+    Key? key,
+    required this.title,
+    required this.thumbnail,
+    required this.videoUrl,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => VideoState()..initializePlayer(videoUrl),
+      child: VideoDetailsView(title: title),
+    );
+  }
+}
+
+class VideoDetailsView extends StatelessWidget {
+  final String title;
+
+  const VideoDetailsView({Key? key, required this.title}) : super(key: key);
+
+  Widget _buildVideoPlayer(BuildContext context, VideoState videoState) {
+    if (videoState.hasError) {
+      return Container(
+        height: 200,
+        color: Colors.black87,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, color: Colors.white, size: 40),
+              const SizedBox(height: 16),
+              const Text(
+                'Failed to load video',
+                style: TextStyle(color: Colors.white),
+              ),
+              if (videoState.errorMessage.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    videoState.errorMessage,
+                    style: const TextStyle(color: Colors.white70, fontSize: 12),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+    }
+
+    if (!videoState.isInitialized) {
+      return Container(
+        height: 200,
+        color: Colors.black87,
+        child: const Center(
+          child: CircularProgressIndicator(color: Colors.white),
+        ),
+      );
+    }
+
+    if (videoState.isYoutubeVideo && videoState.youtubeController != null) {
+      return YoutubePlayer(
+        controller: videoState.youtubeController!,
+        showVideoProgressIndicator: true,
+        progressColors: const ProgressBarColors(
+          playedColor: Colors.red,
+          bufferedColor: Colors.white70,
+        ),
+      );
+    }
+
+    if (videoState.flickManager != null) {
+      return AspectRatio(
+        aspectRatio: 16 / 9,
+        child: FlickVideoPlayer(
+          flickManager: videoState.flickManager!,
+          flickVideoWithControls: const FlickVideoWithControls(
+            controls: FlickPortraitControls(),
+          ),
+          flickVideoWithControlsFullscreen: const FlickVideoWithControls(
+            controls: FlickLandscapeControls(),
+          ),
+        ),
+      );
+    }
+
+    return Container();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +108,11 @@ class VideoDetials extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              width: double.infinity, // Specific width
+              width: double.infinity,
               height: 150,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 3, 139, 28),
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(255, 3, 139, 28),
               ),
-
               child: Stack(
                 children: [
                   SafeArea(
@@ -40,57 +134,50 @@ class VideoDetials extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // FarmEd icon in the center
-                  Padding(
-                    padding: const EdgeInsets.only(top: 80.0),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 80.0),
                     child: Center(
-                        child: Text(
-                      'Videos',
-                      style: TextStyle(
+                      child: Text(
+                        'Videos',
+                        style: TextStyle(
                           fontSize: 36,
                           color: Colors.white,
-                          fontWeight: FontWeight.w900),
-                    )),
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
-            Container(
-              height: 250,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                image: DecorationImage(
-                  image: AssetImage(thumbnail),
-                  fit: BoxFit.cover,
-                ),
-              ),
-              // child: Image.asset(
-              //   thumbnail,
-              //   fit: BoxFit.cover,
-              // ),
+            Consumer<VideoState>(
+              builder: (context, videoState, child) =>
+                  _buildVideoPlayer(context, videoState),
             ),
             Padding(
               padding: const EdgeInsets.all(25),
-              child: Text(title,
-                  style: TextStyle(fontSize: 24, color: Colors.black)),
+              child: Text(
+                title,
+                style: const TextStyle(fontSize: 24, color: Colors.black),
+              ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 25.0),
               child: Divider(),
             ),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
+                const Padding(
+                  padding: EdgeInsets.only(left: 25.0),
                   child: Text(
                     'Other similar videos',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                   ),
                 ),
-                SizedBox(height: 10),
-                MyVideos(),
+                const SizedBox(height: 10),
+                const MyVideos(),
               ],
             )
           ],

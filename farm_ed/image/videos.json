@@ -1,0 +1,31 @@
+{
+    "videos": [
+      {
+        "id": "1",
+        "title": "Modern Rice Farming Techniques",
+        "description": "Learn about advanced methods of rice cultivation and harvesting",
+        "thumbnail": "image/images/rice-plantsunset.png",
+        "videoUrl": "https://youtu.be/kT1R7Hkps5M",
+        "duration": "10:16",
+        "category": "Farming Techniques"
+      },
+      {
+        "id": "2",
+        "title": "Efficient Harvesting Methods",
+        "description": "Discover the latest harvesting technologies and best practices",
+        "thumbnail": "image/images/HarvestingField.png",
+        "videoUrl": "https://youtu.be/q_xe2vdX7gE",
+        "duration": "2:21",
+        "category": "Machinery"
+      },
+      {
+        "id": "3",
+        "title": "Sustainable Farming Practices",
+        "description": "Essential guidelines for environmentally conscious farming",
+        "thumbnail": "image/images/FarmWorker.png",
+        "videoUrl": "https://youtu.be/Xxzvj2f7mkU",
+        "duration": "3:15",
+        "category": "Sustainability"
+      }
+    ]
+  }
