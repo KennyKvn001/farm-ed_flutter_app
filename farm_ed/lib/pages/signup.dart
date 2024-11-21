@@ -1,8 +1,112 @@
 import 'package:farm_ed/pages/login.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class SignupPage extends StatelessWidget {
+class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
+
+  @override
+  _SignupPageState createState() => _SignupPageState();
+}
+
+class _SignupPageState extends State<SignupPage> {
+  // Controllers for text fields
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  // Firebase Authentication instance
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  // Method to handle email/password signup
+  Future<void> _signUpWithEmailAndPassword() async {
+    try {
+      // Validate input fields
+      if (_usernameController.text.isEmpty ||
+          _emailController.text.isEmpty ||
+          _passwordController.text.isEmpty) {
+        _showErrorSnackBar("Please fill in all fields");
+        return;
+      }
+
+      // Create user with email and password
+      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      // Update user profile with username
+      await userCredential.user?.updateDisplayName(_usernameController.text.trim());
+
+      // Navigate to home or next screen
+      _navigateToHomeScreen();
+    } on FirebaseAuthException catch (e) {
+      // Handle specific Firebase authentication errors
+      String errorMessage = "Signup failed";
+      switch (e.code) {
+        case 'weak-password':
+          errorMessage = "The password is 3too weak";
+          break;
+        case 'email-already-in-use':
+          errorMessage = "An account already exists with this email";
+          break;
+        case 'invalid-email':
+          errorMessage = "Invalid email format";
+          break;
+      }
+      _showErrorSnackBar(errorMessage);
+    } catch (e) {
+      // Handle any other unexpected errors
+      _showErrorSnackBar("An unexpected error occurred");
+    }
+  }
+
+  // Method to handle Google Sign-In
+  Future<void> _signUpWithGoogle() async {
+    try {
+      // Trigger the Google Sign-In process
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      
+      if (googleUser != null) {
+        // Obtain the auth credentials
+        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+        
+        // Create a new credential
+        final OAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+        
+        // Sign in to Firebase with the Google credential
+        await _auth.signInWithCredential(credential);
+        
+        // Navigate to home screen
+        _navigateToHomeScreen();
+      }
+    } catch (e) {
+      _showErrorSnackBar("Google Sign-In failed");
+    }
+  }
+
+  // Method to show error messages
+  void _showErrorSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+
+  // Method to navigate to home screen
+  void _navigateToHomeScreen() {
+    // Replace with your actual home screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +123,6 @@ class SignupPage extends StatelessWidget {
                   children: [
                     const SizedBox(height: 80),
                     Image.asset('image/logo.png', height: 100),
-                    // Add your logo here
                     const SizedBox(height: 18),
                     const Text(
                       "Sign Up",
@@ -30,12 +133,54 @@ class SignupPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    _buildTextField("Username"),
+                    // Username TextField
+                    TextField(
+                      controller: _usernameController,
+                      decoration: InputDecoration(
+                        hintText: "Username",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      ),
+                    ),
                     const SizedBox(height: 15),
-                    _buildTextField("Email"),
+                    // Email TextField
+                    TextField(
+                      controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        hintText: "Email",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      ),
+                    ),
                     const SizedBox(height: 15),
-                    _buildTextField("Password", obscureText: true),
+                    // Password TextField
+                    TextField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      ),
+                    ),
                     const SizedBox(height: 20),
+                    // Sign Up Button
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
@@ -44,19 +189,52 @@ class SignupPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: _signUpWithEmailAndPassword,
                       child: const Text(
                         "Sign up",
                         style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 20),
                     const Text("Or sign up with"),
                     const SizedBox(height: 10),
-                    _buildGoogleButton(),
+                    // Google Sign-In Button
+                    Container(
+                      width: 200,
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 1,
+                            blurRadius: 6,
+                            offset: const Offset(0, 5),
+                          ),
+                        ],
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: OutlinedButton.icon(
+                        onPressed: _signUpWithGoogle,
+                        icon: Image.asset('image/images/google.png', height: 24),
+                        label: const Text(
+                          "Google",
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                          minimumSize: const Size(double.infinity, 50),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          side: BorderSide(color: Colors.grey.shade300),
+                          foregroundColor: Colors.black,
+                          backgroundColor: Colors.grey.shade300,
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -67,7 +245,7 @@ class SignupPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const LoginPage()),
+                                  builder: (context) =>  LoginPage()),
                             );
                           },
                           child: const Text(
@@ -80,24 +258,23 @@ class SignupPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 18),
                   ],
                 ),
               ),
-              Row(
+               Row(
                 //crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Image.asset(
                     "image/images/FarmEd Vector.png",
-                    height: 130,
+                    height: 190,
                   ),
                   Spacer(),
                   Image.asset(
                     "image/images/FarmEd Group 2.png",
-                    height: 130,
+                    height: 180,
                   )
                 ],
-              )
+              )// ... (rest of the existing UI remains the same)
             ],
           ),
         ),
@@ -105,61 +282,12 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String hint, {bool obscureText = false}) {
-    return TextField(
-      obscureText: obscureText,
-      decoration: InputDecoration(
-        hintText: hint,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        filled: true,
-        fillColor: Colors.grey[200],
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      ),
-    );
-  }
-
-  Widget _buildGoogleButton() {
-    return Container(
-      width: 200,
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            // Shadow color with transparency
-            spreadRadius: 1,
-            blurRadius: 6,
-            // How blurred the shadow is
-            offset: const Offset(0, 5), // X and Y offset of the shadow
-          ),
-        ],
-        borderRadius: BorderRadius.circular(16),
-        // Same border radius as the button
-      ),
-      child: OutlinedButton.icon(
-        onPressed: () {},
-        icon: Image.asset('image/images/google.png', height: 24),
-        // Add Google logo here
-        label: const Text(
-          "Google",
-          style: TextStyle(fontSize: 16),
-        ),
-        style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-          minimumSize: const Size(double.infinity, 50),
-          // Adjusted button size
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20), // More rounded corners
-          ),
-          side: BorderSide(color: Colors.grey.shade300),
-          // Border color
-          foregroundColor: Colors.black,
-          // Text and icon color
-          backgroundColor: Colors.grey.shade300, // Button background color
-        ),
-      ),
-    );
+  @override
+  void dispose() {
+    // Clean up controllers
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 }
