@@ -64,7 +64,8 @@ class _LoginPageState extends State<LoginPage> {
       context: context,
       builder: (context) => AlertDialog(
         title: const Text("Sign Up Required"),
-        content: const Text("No account found with this email. Would you like to sign up?"),
+        content: const Text(
+            "No account found with this email. Would you like to sign up?"),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
@@ -107,9 +108,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 130),
+                    const SizedBox(height: 100),
                     Image.asset('image/logo.png', height: 100),
-                    const SizedBox(height: 18),
+                    const SizedBox(height: 15),
                     const Text(
                       "Login",
                       style: TextStyle(
@@ -121,7 +122,8 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 20),
                     _buildTextField("Email", _emailController),
                     const SizedBox(height: 15),
-                    _buildTextField("Password", _passwordController, obscureText: true),
+                    _buildTextField("Password", _passwordController,
+                        obscureText: true),
                     const SizedBox(height: 20),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -154,7 +156,8 @@ class _LoginPageState extends State<LoginPage> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const SignupPage()),
+                              MaterialPageRoute(
+                                  builder: (context) => const SignupPage()),
                             );
                           },
                           child: const Text(
@@ -170,19 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Row(
-                children: [
-                  Image.asset(
-                    "image/images/FarmEd Vector.png",
-                    height: 190,
-                  ),
-                  const Spacer(),
-                  Image.asset(
-                    "image/images/FarmEd Group 2.png",
-                    height: 190,
-                  ),
-                ],
-              ),
+              Image.asset('image/images/decodown.png')
             ],
           ),
         ),

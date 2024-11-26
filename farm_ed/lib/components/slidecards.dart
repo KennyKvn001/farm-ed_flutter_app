@@ -39,7 +39,7 @@ class SlideCard extends StatelessWidget {
               description,
               style: const TextStyle(
                   color: Color.fromARGB(255, 73, 208, 79),
-                  fontSize: 40,
+                  fontSize: 36,
                   fontWeight: FontWeight.w900),
             ),
             const SizedBox(height: 10),

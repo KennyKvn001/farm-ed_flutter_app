@@ -31,13 +31,15 @@ class _SignupPageState extends State<SignupPage> {
       }
 
       // Create user with email and password
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
 
       // Update user profile with username
-      await userCredential.user?.updateDisplayName(_usernameController.text.trim());
+      await userCredential.user
+          ?.updateDisplayName(_usernameController.text.trim());
 
       // Navigate to home or next screen
       _navigateToHomeScreen();
@@ -67,20 +69,21 @@ class _SignupPageState extends State<SignupPage> {
     try {
       // Trigger the Google Sign-In process
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      
+
       if (googleUser != null) {
         // Obtain the auth credentials
-        final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-        
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
+
         // Create a new credential
         final OAuthCredential credential = GoogleAuthProvider.credential(
           accessToken: googleAuth.accessToken,
           idToken: googleAuth.idToken,
         );
-        
+
         // Sign in to Firebase with the Google credential
         await _auth.signInWithCredential(credential);
-        
+
         // Navigate to home screen
         _navigateToHomeScreen();
       }
@@ -121,9 +124,9 @@ class _SignupPageState extends State<SignupPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 80),
+                    const SizedBox(height: 40),
                     Image.asset('image/logo.png', height: 100),
-                    const SizedBox(height: 18),
+                    const SizedBox(height: 10),
                     const Text(
                       "Sign Up",
                       style: TextStyle(
@@ -143,8 +146,8 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         filled: true,
                         fillColor: Colors.grey[200],
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 12),
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -159,8 +162,8 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         filled: true,
                         fillColor: Colors.grey[200],
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 12),
                       ),
                     ),
                     const SizedBox(height: 15),
@@ -175,8 +178,8 @@ class _SignupPageState extends State<SignupPage> {
                         ),
                         filled: true,
                         fillColor: Colors.grey[200],
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 12),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -218,13 +221,15 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       child: OutlinedButton.icon(
                         onPressed: _signUpWithGoogle,
-                        icon: Image.asset('image/images/google.png', height: 24),
+                        icon:
+                            Image.asset('image/images/google.png', height: 24),
                         label: const Text(
                           "Google",
                           style: TextStyle(fontSize: 16),
                         ),
                         style: OutlinedButton.styleFrom(
-                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 12, horizontal: 24),
                           minimumSize: const Size(double.infinity, 50),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
@@ -245,7 +250,7 @@ class _SignupPageState extends State<SignupPage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>  LoginPage()),
+                                  builder: (context) => LoginPage()),
                             );
                           },
                           child: const Text(
@@ -261,20 +266,7 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
               ),
-               Row(
-                //crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Image.asset(
-                    "image/images/FarmEd Vector.png",
-                    height: 190,
-                  ),
-                  Spacer(),
-                  Image.asset(
-                    "image/images/FarmEd Group 2.png",
-                    height: 180,
-                  )
-                ],
-              )// ... (rest of the existing UI remains the same)
+              Image.asset('image/images/decodown.png')
             ],
           ),
         ),

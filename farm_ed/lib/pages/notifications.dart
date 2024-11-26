@@ -96,7 +96,7 @@ class NotificationsPage extends StatelessWidget {
                               'Updates',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                                fontSize: 12,
                                 color: Colors.grey,
                               ),
                             ),
@@ -104,7 +104,7 @@ class NotificationsPage extends StatelessWidget {
                             Text(
                               'The IPO parade continues as Wish files',
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                               ),
                             ),
                           ],

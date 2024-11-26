@@ -52,7 +52,7 @@ class _MyVideosState extends State<MyVideos> {
               child: Stack(
                 children: [
                   Container(
-                    height: 210,
+                    height: 220,
                     decoration: BoxDecoration(
                       color: Colors.grey[400],
                       borderRadius: BorderRadius.circular(15),
@@ -69,24 +69,10 @@ class _MyVideosState extends State<MyVideos> {
                       ),
                     ),
                   ),
-                  Positioned.fill(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.transparent,
-                            Colors.black.withOpacity(0.3),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Icon(
