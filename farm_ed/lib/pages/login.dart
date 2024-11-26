@@ -1,12 +1,98 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import '../pages/signup.dart';
 import '../home_screen.dart';
 
-
-
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> _login() async {
+    try {
+      // Validate input fields
+      if (_emailController.text.isEmpty || _passwordController.text.isEmpty) {
+        _showErrorSnackBar("Please fill in all fields");
+        return;
+      }
+
+      // Attempt to log in with email and password
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: _emailController.text.trim(),
+        password: _passwordController.text.trim(),
+      );
+
+      // If successful, navigate to the home screen
+      if (userCredential.user != null) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
+      }
+    } on FirebaseAuthException catch (e) {
+      // Handle specific login errors
+      String errorMessage = "Login failed";
+      switch (e.code) {
+        case 'user-not-found':
+          errorMessage = "No account found with this email. Please sign up.";
+          _promptSignUp();
+          return;
+        case 'wrong-password':
+          errorMessage = "Incorrect password. Please try again.";
+          break;
+        case 'invalid-email':
+          errorMessage = "Invalid email format.";
+          break;
+      }
+      _showErrorSnackBar(errorMessage);
+    } catch (e) {
+      // Handle unexpected errors
+      _showErrorSnackBar("An unexpected error occurred");
+    }
+  }
+
+  // Prompt the user to sign up if no account is found
+  void _promptSignUp() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Sign Up Required"),
+        content: const Text("No account found with this email. Would you like to sign up?"),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("Cancel"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SignupPage()),
+              );
+            },
+            child: const Text("Sign Up"),
+          ),
+        ],
+      ),
+    );
+  }
+
+  void _showErrorSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +109,6 @@ class LoginPage extends StatelessWidget {
                   children: [
                     const SizedBox(height: 130),
                     Image.asset('image/logo.png', height: 100),
-                    // Add your logo here
                     const SizedBox(height: 18),
                     const Text(
                       "Login",
@@ -34,47 +119,28 @@ class LoginPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    _buildTextField("Email"),
+                    _buildTextField("Email", _emailController),
                     const SizedBox(height: 15),
-                    _buildTextField("Password", obscureText: true),
+                    _buildTextField("Password", _passwordController, obscureText: true),
                     const SizedBox(height: 20),
-                    Center(
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomeScreen()),
-                          );
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(17),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 2.5,
-                                blurRadius: 7,
-                                offset: Offset(0, 3),
-                              )
-                            ],
-                          ),
-                          child: Center(
-                            child: Text(
-                              "login",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 24,
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        minimumSize: const Size(double.infinity, 50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      onPressed: _login,
+                      child: const Text(
+                        "Login",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
                     ),
-
                     const SizedBox(height: 20),
                     const Text("Or sign up with"),
                     const SizedBox(height: 10),
@@ -83,17 +149,16 @@ class LoginPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text("Create new account? "),
+                        const Text("Don't have an account? "),
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignupPage()),
+                              MaterialPageRoute(builder: (context) => const SignupPage()),
                             );
                           },
                           child: const Text(
-                            "Signup",
+                            "Sign Up",
                             style: TextStyle(
                               color: Colors.blue,
                               fontWeight: FontWeight.normal,
@@ -102,24 +167,22 @@ class LoginPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 31),
                   ],
                 ),
               ),
               Row(
-                //crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Image.asset(
                     "image/images/FarmEd Vector.png",
-                    height: 130,
+                    height: 190,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Image.asset(
                     "image/images/FarmEd Group 2.png",
-                    height: 130,
-                  )
+                    height: 190,
+                  ),
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -127,8 +190,10 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String hint, {bool obscureText = false}) {
+  Widget _buildTextField(String hint, TextEditingController controller,
+      {bool obscureText = false}) {
     return TextField(
+      controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hint,
@@ -150,20 +215,16 @@ class LoginPage extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
-            // Shadow color with transparency
             spreadRadius: 1,
             blurRadius: 6,
-            // How blurred the shadow is
-            offset: const Offset(0, 5), // X and Y offset of the shadow
+            offset: const Offset(0, 5),
           ),
         ],
-        borderRadius:
-            BorderRadius.circular(20), // Same border radius as the button
+        borderRadius: BorderRadius.circular(20),
       ),
       child: OutlinedButton.icon(
-        onPressed: () {},
+        onPressed: () {}, // Implement Google Sign-In if needed
         icon: Image.asset('image/images/google.png', height: 24),
-        // Add Google logo here
         label: const Text(
           "Google",
           style: TextStyle(fontSize: 16),
@@ -171,17 +232,21 @@ class LoginPage extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
           minimumSize: const Size(double.infinity, 50),
-          // Adjusted button size
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20), // More rounded corners
+            borderRadius: BorderRadius.circular(20),
           ),
           side: BorderSide(color: Colors.grey.shade300),
-          // Border color
           foregroundColor: Colors.black,
-          // Text and icon color
-          backgroundColor: Colors.grey.shade300, // Button background color
+          backgroundColor: Colors.grey.shade300,
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 }
