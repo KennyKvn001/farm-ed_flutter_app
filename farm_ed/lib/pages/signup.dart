@@ -266,7 +266,11 @@ class _SignupPageState extends State<SignupPage> {
                   ],
                 ),
               ),
-              Image.asset('image/images/decodown.png')
+              Image.asset(
+                'image/images/decodown.png',
+                width: double.infinity,
+                fit: BoxFit.cover,
+              )
             ],
           ),
         ),

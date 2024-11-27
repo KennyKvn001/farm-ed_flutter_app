@@ -173,7 +173,11 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              Image.asset('image/images/decodown.png')
+              Image.asset(
+                'image/images/decodown.png',
+                width: double.infinity,
+                fit: BoxFit.cover,
+              )
             ],
           ),
         ),

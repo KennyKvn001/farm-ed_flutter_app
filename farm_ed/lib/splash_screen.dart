@@ -35,9 +35,17 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset('image/images/decoup.png'),
+              Image.asset(
+                'image/images/decoup.png',
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
               Center(child: Image.asset('image/logo.png')),
-              Image.asset('image/images/decodown.png'),
+              Image.asset(
+                'image/images/decodown.png',
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ]),
       ),
     );
