@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "789631968041",
+    "firebase_url": "https://farmed-flutter-app-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "farmed-flutter-app",
     "storage_bucket": "farmed-flutter-app.firebasestorage.app"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.farm_ed"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "789631968041-sjt31j1oqoujmos1ou64p5donog0lic8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.farm_ed",
+            "certificate_hash": "b96ae01dbbb70efb43fa8d8aefce799c80435b4d"
+          }
+        },
+        {
+          "client_id": "789631968041-vms31s2nlpaka0ib1vusnodist5cr2j5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAIOiv8BKNlXuXNQdE9XgXv3e1ov3E3OvM"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "789631968041-vms31s2nlpaka0ib1vusnodist5cr2j5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

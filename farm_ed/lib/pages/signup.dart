@@ -1,3 +1,4 @@
+import 'package:farm_ed/pages/home-page.dart';
 import 'package:farm_ed/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -107,7 +108,7 @@ class _SignupPageState extends State<SignupPage> {
     // Replace with your actual home screen
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => HomePage()),
     );
   }
 

@@ -20,21 +20,47 @@ class ProfilePage extends StatelessWidget {
 
     if (user != null) {
       try {
+        // Prompt re-authentication
+        AuthCredential credential = EmailAuthProvider.credential(
+            email: user.email!,
+            password:
+                'user_provided_password' // You'll need to prompt the user for this
+            );
+
+        // Re-authenticate the user
+        await user.reauthenticateWithCredential(credential);
+
+        // Then delete the account
         await user.delete();
+
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Account deleted successfully.')),
         );
+
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => const SignupPage()),
         );
+      } on FirebaseAuthException catch (e) {
+        String errorMessage;
+        switch (e.code) {
+          case 'requires-recent-login':
+            errorMessage = 'Please log in again before deleting your account.';
+            break;
+          case 'user-mismatch':
+            errorMessage = 'The credentials do not match our records.';
+            break;
+          default:
+            errorMessage = 'Error deleting account: ${e.message}';
+        }
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(errorMessage)),
+        );
       } catch (e) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error deleting account: $e')),
+          SnackBar(content: Text('Unexpected error: $e')),
         );
-        if (e.toString().contains('re-authenticate')) {
-          // Handle re-authentication here if required
-        }
       }
     }
   }
@@ -46,170 +72,172 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       body: user == null
           ? const Center(
-        child: Text('No user logged in.'),
-      )
+              child: Text('No user logged in.'),
+            )
           : Column(
-        children: [
-          Container(
-            width: double.infinity, // Full width
-            height: 250, // Specific height
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-              color: const Color.fromARGB(255, 3, 139, 28),
-            ),
-            child: Stack(
               children: [
-                // White back arrow at the top left
-                SafeArea(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10.0),
-                    child: Container(
-                      margin: const EdgeInsets.only(left: 16),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: IconButton(
-                        icon: const Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: Colors.green,
-                        ),
-                        onPressed: () => Navigator.pop(context),
-                      ),
+                Container(
+                  width: double.infinity, // Full width
+                  height: 250, // Specific height
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
                     ),
+                    color: const Color.fromARGB(255, 3, 139, 28),
+                  ),
+                  child: Stack(
+                    children: [
+                      // White back arrow at the top left
+                      SafeArea(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 10.0),
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 16),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: IconButton(
+                              icon: const Icon(
+                                Icons.arrow_back_ios_new_rounded,
+                                color: Colors.green,
+                              ),
+                              onPressed: () => Navigator.pop(context),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 80.0),
+                        child: Center(
+                          child: Image.asset(
+                            'image/logo(1).png',
+                            height: 60,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 80.0),
-                  child: Center(
-                    child: Image.asset(
-                      'image/logo(1).png',
-                      height: 60,
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        // Profile Picture
+                        const CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.grey,
+                          child: Icon(
+                            Icons.person,
+                            size: 50,
+                            color: Colors.white,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        // Username (if available)
+                        if (user.displayName != null)
+                          TextField(
+                            enabled: false,
+                            decoration: const InputDecoration(
+                              labelText: 'Username',
+                              border: OutlineInputBorder(),
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 10),
+                            ),
+                            controller: TextEditingController(
+                              text: user.displayName,
+                            ),
+                          ),
+                        const SizedBox(height: 20),
+                        // Email
+                        TextField(
+                          enabled: false,
+                          decoration: const InputDecoration(
+                            labelText: 'Email',
+                            border: OutlineInputBorder(),
+                            contentPadding:
+                                EdgeInsets.symmetric(horizontal: 10),
+                          ),
+                          controller: TextEditingController(
+                            text: user.email,
+                          ),
+                        ),
+                        const SizedBox(height: 100),
+                        // Logout Button
+                        SizedBox(
+                          width: 360,
+                          height: 50,
+                          child: OutlinedButton(
+                            onPressed: () => _logout(context),
+                            style: OutlinedButton.styleFrom(
+                              foregroundColor: Colors.red,
+                              side: const BorderSide(color: Colors.red),
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                            ),
+                            child: const Text(
+                              'Logout',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        // Delete Account Button
+                        SizedBox(
+                          width: 360,
+                          height: 50,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text('Confirm Deletion'),
+                                    content: const Text(
+                                        'Are you sure you want to delete your account?'),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.of(context).pop(),
+                                        child: const Text('Cancel'),
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          _deleteAccount(context);
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.red,
+                                        ),
+                                        child: const Text('Delete'),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.red,
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                            ),
+                            child: const Text(
+                              'Delete account',
+                              style: TextStyle(
+                                fontSize: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  const SizedBox(height: 20),
-                  // Profile Picture
-                  const CircleAvatar(
-                    radius: 40,
-                    backgroundColor: Colors.grey,
-                    child: Icon(
-                      Icons.person,
-                      size: 50,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  // Username (if available)
-                  if (user.displayName != null)
-                    TextField(
-                      enabled: false,
-                      decoration: const InputDecoration(
-                        labelText: 'Username',
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      ),
-                      controller: TextEditingController(
-                        text: user.displayName,
-                      ),
-                    ),
-                  const SizedBox(height: 20),
-                  // Email
-                  TextField(
-                    enabled: false,
-                    decoration: const InputDecoration(
-                      labelText: 'Email',
-                      border: OutlineInputBorder(),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                    ),
-                    controller: TextEditingController(
-                      text: user.email,
-                    ),
-                  ),
-                  const SizedBox(height: 100),
-                  // Logout Button
-                  SizedBox(
-                    width: 360,
-                    height: 50,
-                    child: OutlinedButton(
-                      onPressed: () => _logout(context),
-                      style: OutlinedButton.styleFrom(
-                        foregroundColor: Colors.red,
-                        side: const BorderSide(color: Colors.red),
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
-                      child: const Text(
-                        'Logout',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  // Delete Account Button
-                  SizedBox(
-                    width: 360,
-                    height: 50,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: const Text('Confirm Deletion'),
-                              content: const Text(
-                                  'Are you sure you want to delete your account?'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.of(context).pop(),
-                                  child: const Text('Cancel'),
-                                ),
-                                ElevatedButton(
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                    _deleteAccount(context);
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.red,
-                                  ),
-                                  child: const Text('Delete'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                      ),
-                      child: const Text(
-                        'Delete account',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

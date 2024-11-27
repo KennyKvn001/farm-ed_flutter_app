@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../pages/signup.dart';
 import '../home_screen.dart';
 
@@ -56,6 +57,43 @@ class _LoginPageState extends State<LoginPage> {
       // Handle unexpected errors
       _showErrorSnackBar("An unexpected error occurred");
     }
+  }
+
+  // Method to handle Google Sign-In
+  Future<void> _signUpWithGoogle() async {
+    try {
+      // Trigger the Google Sign-In process
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+      if (googleUser != null) {
+        // Obtain the auth credentials
+        final GoogleSignInAuthentication googleAuth =
+            await googleUser.authentication;
+
+        // Create a new credential
+        final OAuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+
+        // Sign in to Firebase with the Google credential
+        await _auth.signInWithCredential(credential);
+
+        // Navigate to home screen
+        _navigateToHomeScreen();
+      }
+    } catch (e) {
+      _showErrorSnackBar("Google Sign-In failed");
+    }
+  }
+
+  // Method to navigate to home screen
+  void _navigateToHomeScreen() {
+    // Replace with your actual home screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => HomeScreen()),
+    );
   }
 
   // Prompt the user to sign up if no account is found
@@ -218,7 +256,7 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(20),
       ),
       child: OutlinedButton.icon(
-        onPressed: () {}, // Implement Google Sign-In if needed
+        onPressed: _navigateToHomeScreen, // Implement Google Sign-In if needed
         icon: Image.asset('image/images/google.png', height: 24),
         label: const Text(
           "Google",
