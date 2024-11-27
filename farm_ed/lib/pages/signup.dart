@@ -1,4 +1,4 @@
-import 'package:farm_ed/pages/home-page.dart';
+import 'package:farm_ed/home_screen.dart';
 import 'package:farm_ed/pages/login.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -43,7 +43,7 @@ class _SignupPageState extends State<SignupPage> {
           ?.updateDisplayName(_usernameController.text.trim());
 
       // Navigate to home or next screen
-      _navigateToHomeScreen();
+      _navigateToLogin();
     } on FirebaseAuthException catch (e) {
       // Handle specific Firebase authentication errors
       String errorMessage = "Signup failed";
@@ -108,7 +108,15 @@ class _SignupPageState extends State<SignupPage> {
     // Replace with your actual home screen
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => HomePage()),
+      MaterialPageRoute(builder: (context) => HomeScreen()),
+    );
+  }
+
+  void _navigateToLogin() {
+    // Replace with your actual home screen
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
     );
   }
 
