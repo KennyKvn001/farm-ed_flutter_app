@@ -256,7 +256,7 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(20),
       ),
       child: OutlinedButton.icon(
-        onPressed: _navigateToHomeScreen, // Implement Google Sign-In if needed
+        onPressed: _signUpWithGoogle, // Implement Google Sign-In if needed
         icon: Image.asset('image/images/google.png', height: 24),
         label: const Text(
           "Google",
